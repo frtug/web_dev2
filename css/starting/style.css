@@ -1,0 +1,120 @@
+/* reset css */
+*{
+    padding:0;
+    left:0;
+    margin:0;
+    /* box-sizing: border-box; */
+}
+
+
+/* tags ways of styling */
+h1{
+    background-color: bisque;
+}
+
+/* ids ways of styling */
+#heading{
+    background-color: aquamarine;
+}
+
+/* class ways of styling */
+/* .head{
+    background-color: rgb(81, 19, 167);
+}
+    */
+p{
+    margin: 10px;
+}
+/*
+div p{
+    background-color: rgb(70, 68, 72);
+
+}
+.mydiv p{
+    background-color: rgb(196, 171, 222);
+}
+.mydiv > p{
+    background-color: rgb(66, 19, 116);
+    color:white;
+}
+#myid > p {
+
+} */
+/* .mydiv{
+    color:rgb(184, 115, 25)
+}
+
+#myid{
+    color:rgb(170, 111, 32)
+} */
+ /* 2tags or 2classes or 2 ids or (1class or id ) or tags  */
+/* .mydiv,#myid,h1,h3{
+    color:rgb(170, 111, 32)
+} */
+
+div#myid p{
+    background-color: brown;
+}
+
+
+input{
+    border:4px solid black;
+}
+input[type]{
+    border:4px solid blue
+}
+
+input[type="text"]{
+    border:4px solid rgb(152, 152, 233);
+    padding:10px
+    /* css here  */
+}
+input[type="email"]{
+    border:4px solid rgb(27, 27, 94);
+    padding:30px
+    /* css here  */
+}
+
+[class~="high" i]{
+    color:rgb(120, 51, 14);
+}
+[id~="higher" ]{
+    color:rgb(212, 130, 85);
+}
+
+[href^="http"]{
+    color:green
+}
+[href$=".in"]{
+    color:rgb(244, 248, 1)
+}
+[src$=".jpg"]{
+    /* css  */
+}
+img[src$=".png"]{
+    /* add css here  */
+}
+[href*="github"]{
+    color:green
+}
+[class*="tainer"]{ 
+    color:green
+}
+[lang|=""]{
+    background-color: aqua;
+}
+
+div + p{
+    color:rgb(202, 9, 212)
+}
+
+div ~ p{
+    color:red;
+}
+
+
+
+
+
+
+

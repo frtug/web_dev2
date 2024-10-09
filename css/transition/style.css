@@ -1,0 +1,41 @@
+body{
+    background-color: wheat;
+}
+
+button {
+    font-size: large;
+    width:100px;
+    height:50px;
+
+    /* transition: width 1.4s, height 1.6s, transform 2s; */
+    background-color: rgb(240, 209, 240);
+    
+    transition-property: width, height, transform;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 2s;
+    transition: width 2s linear 1s;
+    /* width -> Property that you want to transition */
+    /* duration -> 2s  */
+    /* timing function -> ease-in || linear || ease-in-out */
+}
+button:hover{
+    width:200px;
+    height:150px;
+    background-color: rgb(194, 104, 194);
+    transform: rotate(360deg);
+}
+
+p{
+    font-size: large;
+    background-color: #cd3ecd23;
+    padding:10px;
+    transition: font-size 2s linear 0s;
+}
+/* p:hover{
+    font-size: 100px; 
+} */
+.sticky p{
+    position:sticky;
+    top:12px;
+}

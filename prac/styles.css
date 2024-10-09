@@ -1,0 +1,52 @@
+
+
+div{
+  width:33.3%;
+
+}
+.cont{
+  background-color: rgb(37, 37, 150);
+  float:right;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+
+/* @font-face {
+  font-family: 'OpenSansCustom';
+  src: url('https://github.com/alsacreations/webfonts/blob/master/opensans-regular/opensans-regular.woff2') format('woff2'),
+       url('https://github.com/alsacreations/webfonts/blob/master/opensans-regular/opensans-regular.woff') format('woff'),
+       url('https://github.com/alsacreations/webfonts/blob/master/opensans-regular/opensans-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSansCustom';
+  src: url('https://github.com/alsacreations/webfonts/blob/master/opensans-bold/opensans-bold.woff2') format('woff2'),
+       url('https://github.com/alsacreations/webfonts/blob/master/opensans-bold/opensans-bold.woff') format('woff'),
+       url('https://github.com/alsacreations/webfonts/blob/master/opensans-bold/opensans-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+} */
+
+/* 
+body {
+  font-family:  sans;
+}
+
+h1 {
+  font-weight: bold;
+}  */
+ /* body{
+  font-family: OpenSansCustom,cursive,monospace,'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ } */
+
+

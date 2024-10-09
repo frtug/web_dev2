@@ -1,0 +1,43 @@
+@keyframes inc_width{
+    /* from {width:100px}
+    to {width:300px} */
+  
+    0% {
+        /* width:100px; */
+        background-color: rgb(27, 253, 46);
+        /* transform: matrix(1, 0, 0, 1, 0, 0); */
+        transform: translate(0px, 0px);
+        
+
+    }
+
+    
+    50% {
+        /* width:300px; */
+        background-color: red;
+        /* transform: matrix(2, 0, 0, 3, 0, 0); */
+        transform: translate(50px, 100px);
+
+    }
+    100% {
+        /* width:100px; */
+        background-color: blue;
+        /* transform: matrix(1, 0, 0, 1, 0, 0); */
+        transform: translate(200px, 100px);
+
+    }
+}
+
+div{
+    
+    background-color: yellow;
+    border:2px solid black;
+    width:100px;
+    margin-left: 300px;
+    animation-name: inc_width;
+    animation-duration: 5s;
+    animation-iteration-count: 2;
+    animation-delay: 4s;
+    /* animation-direction:alternate; */
+    animation-fill-mode: both;
+}

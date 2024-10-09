@@ -1,0 +1,54 @@
+/* .pos{
+    background-color: beige;
+    padding: 10px;
+    position: relative;
+    height:100vh; 
+}
+h1{
+     position: sticky;
+    left:100px;
+    top:10px 
+
+}
+
+.stats{
+    height:400vh;
+    background-color: rgb(133, 133, 18); 
+
+    position: relative; 
+
+    right:100px;
+    top:100px;
+     bottom:10px; 
+
+     position: absolute; 
+    left:80%;
+    top:80%; 
+} */
+
+.stats{
+    position: absolute;
+    top:0px;
+    left:0px;
+    background-color: aquamarine;
+    z-index: -1;
+}
+
+.pos{
+    background-color: wheat;
+    z-index: 1;
+
+}
+.image-div{
+   position: absolute; 
+   top:30px;
+   right:30px;
+   z-index: 10000;
+}
+
+
+
+
+
+
+

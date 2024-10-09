@@ -1,0 +1,204 @@
+/* button{
+    padding:10px;
+    background-color: beige;
+}
+
+button:hover{
+    background-color:violet;
+    font-size: large;
+}
+/* p:hover{
+    color:yellow
+} */
+
+/*
+
+input:focus{
+    outline:2px solid rgb(7, 255, 90)
+}
+
+button:active{
+    color:teal
+}
+a:active{
+    color:teal;
+    background-color: wheat;
+}
+
+
+input:nth-child(odd){
+    border:3px solid pink;
+} 
+
+input:first-of-type{
+    padding:20px;
+}
+input:last-of-type{
+    padding:30px
+}
+
+p:first-line{
+    color:red;
+}
+p::first-letter{
+    color:rgb(174, 216, 23);
+    font-size: x-large;
+}
+button:first-child{
+    padding:30px;
+}
+button:last-child{
+    padding:50px;
+} */
+/* input:not([type="email"]){
+
+} */
+
+/* input:disabled{
+    background-color:red;
+} */
+/* input[type=checkbox]:checked::before{
+    background-color: rgb(127, 202, 14);
+    color:red;
+} */
+/* input[type=checkbox]:checked::before{
+    color:rgb(152, 200, 7);
+    accent-color: rgb(0, 255, 4);
+} */
+
+/* p:first-child{
+    color:red;
+} */
+/* siblings rules  */
+/* div + p {
+    color:green;
+} */
+/* div p:nth-child(2){
+    color:red;
+} */
+/* div:nth-of-type(1){
+    background-color: violet;
+}*/
+/* p:nth-last-child(1){
+    color:yellow
+} */
+/* p:last-child{
+    color:yellow
+}  */
+/* p:nth-last-of-type(1){
+    color:red;
+}
+[type=checkbox]:checked{
+    accent-color: red;
+    width: 20px;  
+    height: 20px;
+} */
+
+
+/* pseudo Element selectors */
+/* 
+p::before{
+    content:'"' ;
+    font-size: x-large;
+    color:rgb(144, 143, 141)
+}
+p::after{
+    content:'" ' ;
+    font-size: x-large;
+    color:rgb(144, 143, 141)
+} */
+
+/* span{
+    font-size: x-large;
+    color:rgb(144, 143, 141)
+} */
+
+
+/* div p{
+    color:green
+} */
+/* 
+div > p{
+    color:blue;
+}
+
+div ~ p{
+    color:rgb(133, 195, 56);
+}
+div + p{
+    color:rgb(154, 187, 230);
+
+}
+ul{
+    list-style: none;
+}
+nav > ul > li + li{
+    font-size: 50px;
+}
+ */
+
+/* article > h2 ~ p{
+    color:green;
+    font-size: x-large;
+    text-indent: 20px;
+} */
+/* 
+article > p:first-of-type{
+    color:green;
+    font-size: x-large;
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align:center;
+  } */
+ /* text-decoration: line-through; */
+ /* text-decoration-style: dashed; */
+ /* text-transform:uppercase; */
+ /* font-size: 20px;
+ word-spacing:20px;
+ font-family: ; */
+div{
+    position: relative;
+}
+h1{
+    font-size: 50px;
+}
+p{
+    text-indent: 30px;
+}
+p:before{
+    content: "";
+    font-size: x-large;
+    position: absolute;
+    top:10px;
+    left:10px;
+    width: 20px;
+    height:20px;
+    background-color: rgb(24, 71, 224);
+    border-radius: 50%;
+
+}
+
+p::after{
+    content: " ";
+    font-size: x-large;
+    position: absolute;
+
+    width: 20px;
+    height:20px;
+    border-radius: 50%;
+    background-color: rgb(107, 224, 24);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

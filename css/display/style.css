@@ -1,0 +1,99 @@
+/* accessing the parent div */
+/* body > div{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border:2px solid black;
+    background-color: antiquewhite;
+    align-content: center;
+} */
+
+/* accessing the children */
+/* div div{
+    padding: 20px;
+    margin:10px;
+    background-color: aquamarine;
+    height: 50px ;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+} */
+    /* align-content: center; */
+
+/* 
+@media screen and (min-width: 700px){
+    body > div{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+        
+} */ 
+
+body{
+    margin: 0;
+    padding:20px;
+}
+.header{
+    grid-area: header;
+    background-color: rgb(113, 219, 240);
+
+}
+.menu{
+    grid-area: menu;
+    background-color: rgb(113, 219, 240);
+
+}
+.right{
+    grid-area: right;
+    background-color: rgb(113, 219, 240);
+
+}
+.main{
+    grid-area: main;
+    background-color: rgb(113, 219, 240);
+
+}
+.footer{
+    grid-area: footer;
+    background-color: rgb(113, 219, 240);
+
+}
+
+body > div{
+    display: grid;
+    text-align: center;
+    background-color: rgb(47, 118, 232);
+    /* grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); */
+    /* grid-template-rows: repeat(auto-fit,minmax(200px,1fr)); */
+    /* grid-template-rows: minmax(50px, 10vh) minmax(200px, 70vh) minmax(50px, 20vh); */
+    grid-template-areas: 
+    "header header header header"
+    "menu main main right" 
+    "menu footer footer footer";
+    font-size:x-large;
+    border: 10px solid rgb(47, 118, 232);
+    /* overflows */
+    /* grid-template-columns: minmax(0,1fr) minmax(0,1fr) ; */
+
+    /* responive  */
+    /* grid-template-columns: repeat(auto-fill,minmax(200px,1fr));  */
+    /* column-gap: 12px;
+    row-gap: 10px; */
+    gap:10px 12px;
+
+
+    
+}
+
+div div{
+    border: 1px solid rgb(192, 238, 6);
+    padding:20px;
+    /* margin:20px; */
+
+}
+
+
+
+
+
+ 

@@ -1,0 +1,14 @@
+table{
+}
+th,td{
+    border:1px solid blue;
+    padding: 10px;
+
+}
+td{
+    text-align: center;
+    
+}
+tr:hover{
+    background-color: burlywood;
+}

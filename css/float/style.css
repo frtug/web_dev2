@@ -1,0 +1,71 @@
+.container{
+    position: relative;
+    background-color: rgb(255, 217, 127);
+    width: 500px;
+    height: 200px;
+    z-index: -1;
+    background-image: url("https://www.w3schools.com/css/pineapple.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+.container::after{
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    top:0;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.7;
+    z-index: 10;
+}
+/* .left{
+    background-color: rgb(20, 20, 21);
+    float: left;
+}
+.right{
+    background-color: blue;
+
+    float:right; */
+/* }
+.col{
+    width: 33%;
+}
+ul li{
+    float:right;
+    padding-left:20px;
+}
+ul{
+    list-style-type: none;
+    /* margin-bottom: 100px; */
+/* 
+img{
+    float: right;
+    opacity: 0.3; 
+} */
+
+/*  
+.top{
+    position:relative;
+    background-color: aqua;
+    z-index: 1000;   
+    border:2px solid black;
+    outline: green solid 20px;
+}  */
+/* *{
+    outline: rgb(207, 9, 242) solid 3px;
+} */
+.simple{
+    margin-top: 100px;
+    position: relative;
+}
+div > p{
+    position: absolute;
+    top:50px;
+    left:50px;
+}
+img{
+    opacity: 0.5;
+}
+
+
