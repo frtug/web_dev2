@@ -1,0 +1,31 @@
+.container{
+    margin-top: 100px;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: beige;
+    font-size: x-large;
+}
+.tooltip{
+    padding:10px;
+    background-color: gray;
+}
+
+.tooltip:hover + .text{ 
+
+    visibility: visible;
+
+}
+
+ .text{
+    background-color: black;
+    color:white;
+    padding: 10px;
+    top:-50px;
+    /* z-index: 10; */
+    position: absolute;
+    visibility: hidden;
+    /* opacity: 0; */
+}
+
+
