@@ -1,19 +1,23 @@
-.container{
+/* .container{
     margin-top: 100px;
     position: relative;
     width: 100%;
     height: 100px;
     background-color: beige;
     font-size: x-large;
+
 }
 .tooltip{
     padding:10px;
     background-color: gray;
+    display: inline;
 }
 
 .tooltip:hover + .text{ 
 
-    visibility: visible;
+    visibility: visible; */
+    /* display: block; */
+    /* opacity: 1;
 
 }
 
@@ -21,11 +25,91 @@
     background-color: black;
     color:white;
     padding: 10px;
-    top:-50px;
+    top:0px;
+    left:100px; */
     /* z-index: 10; */
+    /* position: absolute; */
+    /* visibility: hidden; */
+    /* display: none; */
+    /* opacity: 0; */
+/* } */
+
+/* img{
+   width:50%;
+   margin-left: 25%;  */
+   /* margin-right: auto;  */
+    /* display: block;
+} */
+
+.image-style{
+    position: relative;
+    display: inline;
+}
+.overlay{
+    bottom:4px;
+    text-align: center;
+    background-color: aqua;
     position: absolute;
     visibility: hidden;
-    /* opacity: 0; */
+    width: 300px;
+    height: 0px;
+    transition: 0.4s ease;
+    overflow: hidden;
+}
+.image-style:hover .overlay{
+    visibility: visible;
+    height: 225px;
+}
+
+img{
+    width: 300px;
+    height: auto;
+}
+.text{
+    margin-top: 112px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 800;
+}
+
+/* @media (min-width:400px ){
+
+} */
+/* widescreen */
+/* @media  screen and (min-width:900px ) {
+    body{
+        background-color: aquamarine;
+    }
+} */
+
+/* smallscreen */
+/* 
+@media  screen and (max-width:600px ) {
+    body{
+        background-color: aquamarine;
+    }
+
+}
+@media  screen and (orientation: landscape) {
+    body {
+      background-color: rgb(228, 112, 11);
+    }
+  } */
+/* 
+@media screen{
+    body {
+        color: rgb(228, 112, 11);
+      }
+}
+@media print{
+    body {
+        color: rgb(24, 9, 234);
+      }
+} */
+
+@media screen and ((min-width:400px) and (max-width:600px)) , (min-width:1100px) {
+    body{
+        background-color: aqua;
+    }
 }
 
 
