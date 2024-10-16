@@ -1,0 +1,40 @@
+h1{
+  color:brown;  
+}
+html{
+    font-size:50px;
+    
+}
+body{
+    /* 1vh = 1% of the available viewport height  */
+    /* height:100vh; */
+    height:100vh;
+    font-size:50px;
+}
+
+.container{
+    /* height: 30%;
+    width:50%; */
+    background-color: aqua;
+    /* font-size: 180px; */
+    /* height:400px; */
+    font-size: 30px;
+
+}
+.item{
+    /* height:100%;
+    width: 100%; */
+    /* height: 1em;  */
+    /* 16px its dependent on the parent  */
+    background-color: bisque;
+    /* font-size: 5vmin; */
+    font-size: 5vmax;
+    height: 40vh;
+    width: 98.45vw;
+
+}
+/* vh 
+vw 
+vmin
+vmax */
+

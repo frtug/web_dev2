@@ -1,3 +1,13 @@
+/* body{
+    height:100vh
+}
+div{
+    font-size: 70px;
+    width:50%;
+    height:1em;
+    background-color: aqua;
+} */
+
 /* .container{
     margin-top: 100px;
     position: relative;
@@ -40,36 +50,41 @@
    /* margin-right: auto;  */
     /* display: block;
 } */
-
+ 
 .image-style{
     position: relative;
-    display: inline;
+    display: inline-block;
+    box-shadow: 10px 10px 10px gray; 
+
 }
 .overlay{
-    bottom:4px;
-    text-align: center;
+    top:0;
+    right:0;
+    text-align: center; 
+    align-content: center;
     background-color: aqua;
     position: absolute;
-    visibility: hidden;
-    width: 300px;
-    height: 0px;
+    /* visibility: hidden; */
+    width: 0;
+    height: 225px;
     transition: 0.4s ease;
     overflow: hidden;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    opacity: 0;
+
+
 }
 .image-style:hover .overlay{
-    visibility: visible;
-    height: 225px;
+    opacity: 0.3;
+    width: 300px;
 }
 
 img{
     width: 300px;
-    height: auto;
+    height: 225px;
 }
-.text{
-    margin-top: 112px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 800;
-}
+
 
 /* @media (min-width:400px ){
 
@@ -105,11 +120,24 @@ img{
         color: rgb(24, 9, 234);
       }
 } */
-
+/* 
 @media screen and ((min-width:400px) and (max-width:600px)) , (min-width:1100px) {
     body{
         background-color: aqua;
     }
+} */
+
+@media screen and (((min-width:400px) and (max-width:600px))) {
+    body{
+        background-color: rgb(217, 126, 6);
+    }
+}
+@media screen and (max-width:550px) {  
+    body{
+        background-color: rgb(21, 238, 10);
+    }
 }
 
+890px >=768px   tablets 
+>=1024px   laptops and desktop 
 
