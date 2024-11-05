@@ -1,5 +1,5 @@
 
-
+/* 
 div{
   width:33.3%;
 
@@ -13,7 +13,7 @@ div{
   content: "";
   display: table;
   clear: both;
-}
+} */
 
 
 
@@ -50,3 +50,24 @@ h1 {
  } */
 
 
+
+ div{
+  margin: 20px;
+ }
+ button {
+  background-color: green;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius: 10px;
+ }
+ .modal{
+  display: none;
+ }
+
+ .model_appear{
+  display: block;
+  color:green;
+  border: 2x solid black;
+  background-color: black;
+ }

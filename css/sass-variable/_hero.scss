@@ -1,0 +1,15 @@
+
+// ul{
+//     li {
+//         color:blue;
+//         a{
+//             text-decoration: none;
+//         }
+//     }
+// }
+
+$_radius :30px;
+
+@mixin rounded {
+    border-radius: $_radius;
+  }

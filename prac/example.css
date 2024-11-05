@@ -1,0 +1,45 @@
+.enlarge {
+  font-size: 14px;
+  transition-property: font-size;
+  transition-duration: 4s;
+  transition-delay: 2s;
+}
+.enlarge:hover {
+  font-size: 36px;
+}
+
+.button {
+  border: 1px solid black;
+}
+
+.alert:hover {
+  font-weight: bold;
+}
+:not(.alert) {
+  opacity: 0.8;
+}
+
+.accordion {
+  max-width: 600px;
+  margin: 4rem auto;
+  width: 90%;
+  font-family: "Raleway", sans-serif;
+  background: #f4f4f4;
+}
+.accordion__copy {
+  display: none;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  color: gray;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: 500;
+}
+.accordion__copy--open {
+  display: block;
+}
+.accordion_hello {
+  color: gray;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: 500;
+}/*# sourceMappingURL=example.css.map */

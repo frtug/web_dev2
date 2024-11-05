@@ -1,0 +1,45 @@
+
+:root{
+    --h1-width: 600px;
+    --text-p-color: gray;
+    --text-h1-color: rgb(189, 38, 38);
+    --text-span-color: #fff000;
+
+    --bg-card-color: rgba(18, 31, 35, 0.061);
+    --text-h1-color: rgb(189, 38, 38);
+    --text-span-color: #fff000;
+
+    
+}
+h1{
+    width:var(--h1-width);
+    background-color: aqua;
+}
+p{
+    width:var(--h1-width);
+    background-color: aqua;
+
+}
+h5,h2{
+    width:var(--h1-width);
+
+}
+
+
+
+div h5 {
+    color:green;
+ }
+ 
+ div h2{
+   color:red;
+ }
+ 
+ ul li {
+   color:blue;
+ }
+ 
+ ul li a{
+    text-decoration: none;
+ }
+ 
