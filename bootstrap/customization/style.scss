@@ -1,0 +1,14 @@
+
+$primary: #e4869f;
+$secondary: #00d8ff;
+
+
+
+@import  "node_modules/bootstrap/scss/bootstrap.scss";
+
+.btn-primary{
+   background-image: url('../jellyFish.jpg');
+   background-size: container;
+
+   
+} 
