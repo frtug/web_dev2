@@ -39,47 +39,47 @@
 
 //    jsEngine("var a = 'here' ")
 
-    console.log(a) 
+    // console.log(a) 
 
-    var a = 'hello'  
+    // var a = 'hello'  
 
 
-    var a = "hi";
+    // var a = "hi";
 
     
     // let b = "hello"
     // b = "Hello Bye"
 
-    const c = "I am const"
+    // const c = "I am const"
 
 
-    let b = "Bye"  
+    // let b = "Bye"  
     // console.log(b)
 
     
-    b = "hello"
+    // b = "hello"
         // console.log(b)
     
 
     //conditionals
-    if(b == "Bye" ){
-        console.log("Bye")
-    }
-    else if(b == 'Hi'){
-        console.log("Hi")
-        console.log("Hi")
-    }
+    // if(b == "Bye" ){
+    //     console.log("Bye")
+    // }
+    // else if(b == 'Hi'){
+    //     console.log("Hi")
+    //     console.log("Hi")
+    // }
         
 
     
-    else if(b == 'Hi'){
-        console.log("Hi")
+    // else if(b == 'Hi'){
+    //     console.log("Hi")
 
-    }
-    else {
-        console.log("Don't know, Maybe Hi")
+    // }
+    // else {
+    //     console.log("Don't know, Maybe Hi")
 
-    }
+    // }
 
     // if(i <= 20){
 
@@ -127,12 +127,12 @@
 
     // IIFE
 
-    function addition(a,b){
-        return a+b;
-    }
+    // function addition(a,b){
+    //     return a+b;
+    // }
 
-    let result = addition(1,5,6);
-    console.log(result)
+    // let result = addition(1,5,6);
+    // console.log(result)
 
     
     
@@ -188,6 +188,29 @@
     // console.log(a)
 </script>
 <body>
-    Hello
+    <h1></h1>
+    
+    <script>
+        var a = document.querySelector('h1').textContent;  
+        var d = document.querySelector('h1')
+        var ne="";
+        var colors = ["red","blue","green","yellow","pink","lightblue"]
+        for(let i=0;i<a.length;i++){
+            if(a[i] != " ")
+                ne = ne+`<span>${a[i]}</span>`
+            else ne = ne+" "
+        }
+        console.log(ne)
+        d.innerHTML = ne;
+        
+        var all = document.querySelectorAll("span")
+        console.log(all)
+        for(let i=0;i<all.length;i++){
+            let index = i;
+            if(i >= colors.length ) index = i % colors.length 
+            all[i].style.color = colors[index];
+        }
+        
+    </script>
 </body>
 </html>
