@@ -735,71 +735,71 @@
 // }
 
 
-function isPallendrome(st){
-    let i = 0; //first character
-    let j = st.length-1; // last character 
+// function isPallendrome(st){
+//     let i = 0; //first character
+//     let j = st.length-1; // last character 
 
-    // if(st[i] == st[j] )//its a potential pallendrone 
-    while(i < j){
-        if(st[i] !== st[j]) return false;
-        i++;
-        j--;
-    }
+//     // if(st[i] == st[j] )//its a potential pallendrone 
+//     while(i < j){
+//         if(st[i] !== st[j]) return false;
+//         i++;
+//         j--;
+//     }
 
-    return true;
-}
+//     return true;
+// }
 
-// 
-
-
+// // 
 
 
-if(isPallendrome("saat")) console.log("Its Pallendrome")
-else console.log("not a pallendrome")
-
-//-------------------------
-
-function factorial(n){
-    if(n < 0) return -1;
-    if(n == 0) return 1;
-    let fact = 1;
-    for(let i=n;i>=1;i--){
-        fact *= i;
-    }
-    return fact;
-}
-console.log(factorial())
-
-// 1st problem 
-
-function calculateFact(arr){
-//  loop 
- let a = [];
-
-    return a
-}
-let arr=[1,2,3,4,5,35,64]
-calculateFact(arr) //return a array which has all the factorial of the existing array numbers.  
-
-// write a function which will search in the array and find out the seached item with return of its index
 
 
-// ---- 2nd problem
-function search(arr,target){
-// code here 
-}
+// if(isPallendrome("saat")) console.log("Its Pallendrome")
+// else console.log("not a pallendrome")
 
-let res = search(["saas","tass","toss","paas"],"tass")
+// //-------------------------
 
-console.log(res) // index of the target 
+// function factorial(n){
+//     if(n < 0) return -1;
+//     if(n == 0) return 1;
+//     let fact = 1;
+//     for(let i=n;i>=1;i--){
+//         fact *= i;
+//     }
+//     return fact;
+// }
+// console.log(factorial())
 
-// ---------3rd 
-function checkPallen(arr){
-//  RETURN A ARRAY WITH TRUE FALSE BY CHECKING IF YOUR STRING IS PALLENDROME OR NOT
-}
-let p_arr = ["SooS","saas",]
+// // 1st problem 
 
-checkPallen(p_arr)
+// function calculateFact(arr){
+// //  loop 
+//  let a = [];
+
+//     return a
+// }
+// let arr=[1,2,3,4,5,35,64]
+// calculateFact(arr) //return a array which has all the factorial of the existing array numbers.  
+
+// // write a function which will search in the array and find out the seached item with return of its index
+
+
+// // ---- 2nd problem
+// function search(arr,target){
+// // code here 
+// }
+
+// let res = search(["saas","tass","toss","paas"],"tass")
+
+// console.log(res) // index of the target 
+
+// // ---------3rd 
+// function checkPallen(arr){
+// //  RETURN A ARRAY WITH TRUE FALSE BY CHECKING IF YOUR STRING IS PALLENDROME OR NOT
+// }
+// let p_arr = ["SooS","saas",]
+
+// checkPallen(p_arr)
 
 
 // factorial  5! ->  5*4*3*2*1
@@ -838,6 +838,274 @@ checkPallen(p_arr)
 
 //     console.log(row)
 // }
+
+// vignesh
+
+// function factorial(n){
+//     if(n<0) return -1;
+//     if(n==0) return 1;
+//     let fact = 1;
+//     for( let i =n;i>=1;i--){
+//       fact *= i;
+//     }
+//     return fact;
+//   }
+//   function CalculateFact(arr){
+//     return arr.map(factorial)
+//   }
+  
+//   let numbers = [3,6,9,12,15]
+//   let factorials = CalculateFact(numbers);
+//   console.log(factorials);
+
+
+//   console.log(search(myArray, 11));
+
+
+  
+//   console.log(search(myArray, 11));
+  // paliandrome or not
+  
+//   let p_arr = ["soos", "saas", "malayalam", "kannada","Eglish"];
+//   function check(arr) {
+//       let checkedArray = [];
+//       for (let i = 0; i <arr.length; i++) {
+//           let str = arr[i];
+//           let reversed = str.split('').reverse().join(''); 
+//           checkedArray[i] = (str === reversed); 
+//       }
+//       return checkedArray;
+//   }
+  
+//   console.log(check(p_arr));
+
+//   console.log(search(myArray, 11));
+
+//   let myArray = [3,6,9,15,43,14]
+
+//   function search(arr, target) {
+//     let a = [];
+//       for (let i = 0; i <arr.length; i++) {
+//           if (arr[i] === target) {
+//               a.push(i)
+//           }
+//         } 
+//          if(a.length === 0) return -1;
+//          return a;
+
+//   }
+//     console.log(search(myArray, 11));
+
+
+// console.log(Math.round(Math.random()*5))
+
+
+    // function checkPalindromes(strings) {
+    //     return strings.map(str => {return str === str.split('').reverse().join('');
+    //     });
+    // }
+    
+    // const strings = ["madam", "hello", "racecar", "malayalam", "not a palindrome"];
+    // const results = checkPalindromes(strings);
+    // console.log(results);
+
+// prime number 
+
+// 1 and itself
+
+// 2,3,5,7,11 ...
+
+
+// function isPrime(n){
+//     if(n <= 1) return false;
+//     for(let i=2;i<=Math.sqrt(n);i++){
+//         if(n%i == 0 ) return false;
+//     }
+//     return true;
+// }
+// let n = 11;
+// if(isPrime(n)){
+//     console.log(n, "is prime ")
+// }
+// else console.log(n,"not a prime number")
+
+// console.log(Math.sqrt(n))
+
+// function sum_arr(arr){
+//     console.log(arr)
+//     let sum = 0;
+//     for(let i=0;i<arr.length;i++){
+//         sum += arr[i];
+//     }
+//     return sum;
+// }
+
+// function randomValues(n){
+//     return Math.round(Math.random()*n)
+// }
+
+// function Generate_values(n){
+//     let a =[];
+//     for(let i=0;i<n;i++){
+//         a.push(randomValues(n))
+//     }
+//     console.log(a,a.length)
+//     return sum_arr(a)
+// }
+// console.log(Generate_values(100))
+
+
+
+// Create a prime Function which will find all the prime numbers from 1 to 100.  
+// function isPrime(n){
+//     if(n<=1) return false;
+//     for(let i=2;i<=Math.sqrt(n);i++){
+//       if(n%i ==0 ) return false;
+//     }
+//     return true;
+//   }
+  
+//   function firstNPrimes(number) {
+//       const primes = [];
+//      for(let n =1;n<=number;n++){
+//           if (isPrime(n)) {
+//               primes.push(n);
+//           }
+//       }
+//       return primes;
+//   }
+//   const first100Primes = firstNPrimes(200);
+//    console.log(first100Primes);
+
+
+//    function findPrimes(n) {
+//     let primes = [];
+//     for (let i=2; i <= n; i++) { 
+//         let isPrime = true;
+//         for (let j = 2; j <= Math.sqrt(i); j++) {
+//         if (i % j === 0) {
+//             isPrime = false;
+//             break;
+//             }
+//         }
+//         if (isPrime) {
+//             primes.push(i);
+//             }
+//     }
+//     return primes;
+//     }
+//     console.log(findPrimes(100));
+    
+
+// LCM HCF 
+
+// create a list of 200 naturals number [] 1 to   200 
+
+
+// Character count: Count the occurrences of a target in a string "sjfsjfklsja "
+// function countCharacter (str, target) {
+//     let count = 0;
+//     for (let i=0; i < str.length; i++) {
+//         if (str[i] === target) {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+// console.log(countCharacter("reverse","e"))
+
+
+
+// Try creating a reverse of a number 134242   242431
+
+
+// let n = 134; //  100 + 30 + 4
+// //     4*100+3*10+1*1
+// // 431 -> 400+30+1
+// function reverseANumber(n){
+//     // write code for reverse a number 
+
+//     let rev_num = 0;
+//     // console.log(Math.round(n/10))
+//     while(n > 0){
+//         let remainder =  n % 10;  // 4 -> 3  -> 1
+//         rev_num = rev_num*10 + remainder;  //0 +4 -> 4*10 + 3 -> 43*10 +1 =
+//         n = Math.round(n/10);   // n = 13 -> 1 -> 0
+//     }
+//     return rev_num; //431
+// }
+// console.log(reverseANumber(n)) 
+
+// const a = n.toString().split('').reverse().join('');
+// console.log(typeof(parseInt(a)))
+
+// Create a function which will Calculate a digits of a number, you can't use inbuild functions or anything.
+
+// let n = 232442
+
+// // console.log(n.toString().length)
+// function digitCount(n){
+
+//     let count = 0;
+//     while(n > 0){
+//         n = Math.round(n/10);
+//         count++;
+//     }
+//     return count; //431
+// }
+// console.log(digitCount(n))
+
+
+// LCM -> Least common Multiple 
+
+// (2,2) -> 10  2,5
+
+// (2,5) <= a*b 
+// (1,5) <= a*b 
+
+// calaculate the maximum and minimum of two numbers
+
+// function maxMin(a,b){
+//     if(a > b){
+//         console.log(a,"is the greater value ")
+//     }
+//     else console.log(b,"b is greater or equal to a ")
+// }
+// console.log(maxMin(2,5))
+
+// console.log(Math.max(2,5))
+// console.log(Math.min(2,5))
+
+// function lcm(a,b){
+//     let ma = Math.max(a,b)
+//     let mi = Math.min(a,b)
+
+//     for(let i=ma;i<=a*b;i=i+ma){
+//         if(i % mi === 0){
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(lcm(7,5))
+
+
+"reverse"
+r : 2
+e : 3
+v : 1
+s:  1
+ 
+create a char count store in an array or object 
+
+
+
+
+
+
+
+
 
 
 
