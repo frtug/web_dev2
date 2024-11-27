@@ -1091,13 +1091,207 @@
 // console.log(lcm(7,5))
 
 
-"reverse"
-r : 2
-e : 3
-v : 1
-s:  1
+// "reverse"
+// r : 2
+// e : 3
+// v : 1
+// s:  1
  
-create a char count store in an array or object 
+// create a char count store in an array or object 
+
+
+
+// for(char in str) {
+// // if (charCount[char]) {
+// //     charCount[char]++;
+// // } else {
+// //     charCount[char] = 1;
+// // }
+// console.log(char)
+// }
+
+// const ob = {};
+// for(let i=0;i<str.length;i++) {
+//   console.log(str[i])
+//   if(ob[str[i]])
+//     ob[str[i]]++; 
+//   else ob[str[i]] = 1;
+// }
+// console.log(ob)
+
+
+// let 
+
+// store all the lowercase characters 
+// a b c ... z -> 0 1 2 3 4 5 25 
+// 26
+
+
+// let arr = [];
+
+// const str = "hello world";
+
+const arr = [];
+const str = "hello world";
+
+for(let i=0;i<25;i++){
+  arr[i] = 0;
+}
+let con = 97;
+
+for(let i=0;i<str.length;i++){
+  // console.log(str[i])
+  if(str.charCodeAt(i) != 32)
+    arr[str.charCodeAt(i)-con]++;
+  // arr[i] = arr[i]++;
+}
+console.log(arr)
+for(let i=0;i<arr.length;i++){
+  if(arr[i] != 0){
+    console.log(String.fromCharCode(i+con),arr[i])
+  }
+}
+
+
+// for(let i=0;i<str.length;i++){
+//     console.log(arr[str.charCodeAt(i)-con],str[i])
+  
+// }
+// console.log(arr)
+
+// conditions 
+
+// || -> or { 1  0  -> 1
+// 0 1 1
+
+// 1 1 1 
+// 0 0 0
+// }
+
+// && -> AND 
+// 1 && 1 
+// Logic gates  -> 
+// function sum(a,b) {
+//   console.log(a+b);
+// }
+
+// create a program which will create a diamond pattern with just star as a outline 
+
+// 0 1 3 5 7 9 11  (2n-1) n = 0 -> -1 , n=1 -> 1, n=2 -> 3 , 5 ,7,9 ,11
+// ----*
+// ---*-*
+// --*---*
+// -*-----*
+// *-------*
+
+// -*-----*
+// --*---*
+// ---*-*
+// ----*
+
+
+let rows = 5;
+
+for(let i=1;i<=rows;i++){
+  let row = ""
+  // for(let j=0;j<rows-i;j++){
+  //   row += "-";
+  // }
+  for(let j=rows-i;j>0;j--){
+    row += " ";
+  }
+  row += '*';
+  if(i != 1){
+    // 2n-1
+    for(let j=0;j<2*(i-1)-1;j++){
+      row +=" ";
+    }
+    row += "*";
+  }
+
+  console.log(row)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // a = a+1;
+// console.log(a++)  //post increment   0
+// console.log(++b)  //pre increment    1
+
+// console.log(sum(a,b))
+
+
+
+// if(0){
+//   console.log("zero")
+
+// }
+// else {
+//   console.log("not zero")
+// }
+
+// let a = 0;
+// let b  = 0;
+// if ( (++a && b++ ) || a == 2){ 
+//   console.log("Hello",a) 
+// }
+// else if (b == 1){
+//   console.log("b is 2 here ")
+// }
+// else {
+//   console.log("else where ",a)
+// }
+// let a = 1;
+
+// switch(a){
+//   case 0:
+//   case 1:
+//     console.log("zero one",a);
+//     break;
+  
+//   case 2:
+//     console.log("one",a);
+//     break;
+//   default:
+//     console.log("All values other than 0 to 2")
+// }
+
+// function add(a,b){
+//   return parseInt(a)+parseInt(b)
+// }
+// function custom_eval(str){
+//   let total = 0;
+//   for(let i=0;i<str.length;i++){
+//     if(i == 0) total = str[i];
+//     if(str[i] == "+"){
+//       total = add(total,str[i+1]);
+//     }
+//   }
+//   console.log(total)
+// }
+
+// custom_eval("4+5+9+8+10")
+
+
+
+
+
+
+
+
+
+
+
 
 
 
