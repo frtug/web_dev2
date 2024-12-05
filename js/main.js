@@ -1725,18 +1725,18 @@
 
 // function declaration
 
-'Use strict'
-function hello(){
+// 'Use strict'
+// function hello(){
 
-  var a = "hello I am here "
+//   var a = "hello I am here "
 
-  console.log(a)
+//   console.log(a)
 
 
-  console.log("Hello")
-  // console.log(this)
-}
-hello()
+//   console.log("Hello")
+//   // console.log(this)
+// }
+// hello()
 
 //function expression 
 
@@ -1749,26 +1749,118 @@ hello()
 // }
 // hell()
 
-function parentFun(){
-  var a = 12;
-  console.log("a",this)
-  function firstChild(){
-    console.log("b",this)
-    const child = {
-      a : 1,
-      greet : function() {console.log("hello I am a greet function",this.a)}
-    }
-    child.greet()
+// function parentFun(){
+//   var a = 12;
+//   console.log("a",this)
+//   function firstChild(){
+//     console.log("b",this)
+//     const child = {
+//       a : 1,
+//       greet : function() {console.log("hello I am a greet function",this.a)}
+//     }
+//     child.greet()
+//   }
+//   firstChild()
+// }
+// parentFun()
+
+
+// 
+// function a(){
+//   console.log("hello")
+// }
+// a.call()
+
+
+// function b(a,b){
+//   console.log("hello",a,b)
+//   // return a+b
+// }
+// let a = [1,2]
+// let aa = 1
+// let bb = 2
+// console.log(b.call(null,a[0],a[1],aa,bb))
+
+// // b.apply()
+// b.apply(null,a)
+
+const hero ={
+  name:"Mario",
+  health : 100,
+  // heal : function (){
+  // }
+  heal(a,b){
+    this.health += a+b
+  },
+  attack(p){
+    this.health = this.health - p
   }
-  firstChild()
 }
-parentFun()
 
+const pricess ={
+  name:"Elf",
+  health : 30,
+  // heal : function (){
+  // }
+}
 
+// console.log(hero)
+// console.log(hero.health)
 
+// hero.attack(40);
 
+// console.log(hero.health)
+
+console.log(pricess.health)
+
+let a = [2,3]
+hero.heal.call(pricess,1,2)
+console.log(pricess.health)
+
+hero.heal.apply(pricess,a)
+console.log(pricess.health)
+
+const healing = hero.heal.bind(pricess,2,3)
+healing()
+
+console.log(pricess.health)
+
+// const [a,b] = a
+
+// .call
+// .apply 
+// .bind
+
+function abc(){
+  return function a1(){
+    let i = 10
+    return function b1(){
+      return "Hello Abc "+i
+    }
+  }
+}
 
 // console.log(i)
+
+let res = abc()
+let res1 = res()
+console.log(res)
+console.log(res1())
+
+console.log(res()())
+
+// let t = 0
+// for loop
+// t += c[i]
+// let arr = [add,multiply,divide]
+
+let sum = arr.reduce((t,c)=>{return t+c},0)
+
+console.log(sum)
+
+
+
+
 
 
 
