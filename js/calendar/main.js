@@ -1,21 +1,113 @@
+// TOdo app 
+
+const input = document.getElementById('input')
+
+const add = document.getElementById('btn')
+
+const list = document.getElementById('list')
+
+const sort = document.getElementById('sort')
+
+
+console.log(input)
+console.log(add)
+console.log(list)
+
+function sortingAlgo(e){
+    console.log(e.target.value)
+    
+    let items = Array.from(list.children);
+    console.log(items)
+    items.sort((a,b)=>{
+        const time1 = parseInt(a.querySelector('.time').getAttribute('data-timeStamp'))
+        const time2 = parseInt(b.querySelector('.time').getAttribute('data-timeStamp'))
+
+        if(e.target.value === 'asc'){
+            return time1-time2
+        }
+        else {
+            return time2-time1
+        }
+    })
+
+    // give the sorted todos back to ul
+    list.innerHTML = ""
+    items.forEach(it => list.appendChild(it))
+}
+
+function delTodo(e){
+    console.log("delete todo")
+    // console.log(e.target.parentElement)
+    // if(e.target.parentElement) {
+    //     e.target.parentElement.remove()
+    // }
+    console.log(e.target.classList)
+    if(e.target.classList.contains('del')){
+        e.target.parentElement.remove()
+    }
+}
+
+function addTodo(){
+    console.log(input.value)
+
+    let d = new Date();
+    console.log(d.getTime())
+    if(input.value != ""){
+        let li = document.createElement('li')
+
+        li.innerHTML = input.value + `<i class="time" data-timeStamp="${d.getTime()}">${d.toLocaleTimeString("en-US",{ hour12: true })}</i>   <button class="del"> del </button> `;
+    
+        list.appendChild(li)
+    }
+    // let all_del = document.querySelectorAll('.del')
+    // console.log(all_del)
+
+    // all_del.forEach((d)=>{
+    //     d.addEventListener('click',delTodo)
+    // })
+    
+
+    input.value = ""
+}
+
+add.addEventListener('click',addTodo)
+
+list.addEventListener('click',delTodo)
+
+sort.addEventListener('change',sortingAlgo)
+
+
+
+
+
+
+
+
+
+
+
+
+
 // console.log("calendar")
 
-let year = 2024
-let date = {
-    Jan:31,
-    Feb:28,
-    Mar:31,
-    Apr:30,
-    May:31,
-    Jun:30,
-    Jul:31,
-    Aug:31,
-    Sep:30,
-    Oct:31,
-    Nov:30,
-    Dec:31,
-}
-let cal = document.getElementById('Calendar')
+// let year = 2024
+// let date = {
+//     Jan:31,
+//     Feb:28,
+//     Mar:31,
+//     Apr:30,
+//     May:31,
+//     Jun:30,
+//     Jul:31,
+//     Aug:31,
+//     Sep:30,
+//     Oct:31,
+//     Nov:30,
+
+
+//     Dec:31,
+// }
+// let cal = document.getElementById('Calendar')
 
 // for(let d in date){
 //     console.log(d,date[d])
@@ -37,56 +129,56 @@ let cal = document.getElementById('Calendar')
 // }
 
 
-for(let d in date){
-    console.log(d,date[d])
-    // month wise loop
+// for(let d in date){
+//     console.log(d,date[d])
+//     // month wise loop
     
-    let cal = document.getElementById("Calendar")
+//     let cal = document.getElementById("Calendar")
 
-    cal.innerHTML += `
+//     cal.innerHTML += `
 
-<div class="d-flex justify-content-around fw-bold">
+// <div class="d-flex justify-content-around fw-bold">
 
-                <div class="text-danger">Sun</div>
-                <div class="text-success">Mon</div>
-                <div class="text-success">Tue</div>
-                <div class="text-success">Wed</div>
-                <div class="text-success">Thu</div>
-                <div class="text-success">Fri</div>
-                <div class="text-success">Sat</div>
-        </div>
-        <div class="calendar border rounded p-3">
+//                 <div class="text-danger">Sun</div>
+//                 <div class="text-success">Mon</div>
+//                 <div class="text-success">Tue</div>
+//                 <div class="text-success">Wed</div>
+//                 <div class="text-success">Thu</div>
+//                 <div class="text-success">Fri</div>
+//                 <div class="text-success">Sat</div>
+//         </div>
+//         <div class="calendar border rounded p-3">
           
-            <div class="border rounded bg-light">1</div>
-            <div class="border rounded bg-light">2</div>
-            <!-- Row for days 3 to 9 -->
-            <div class="border rounded bg-light">3</div>
-            <div class="border rounded bg-light">4</div>
-            <div class="border rounded bg-light">5</div>
-            <div class="border rounded bg-light">6</div>
-            <div class="border rounded bg-light">7</div>
+//             <div class="border rounded bg-light">1</div>
+//             <div class="border rounded bg-light">2</div>
+//             <!-- Row for days 3 to 9 -->
+//             <div class="border rounded bg-light">3</div>
+//             <div class="border rounded bg-light">4</div>
+//             <div class="border rounded bg-light">5</div>
+//             <div class="border rounded bg-light">6</div>
+//             <div class="border rounded bg-light">7</div>
 
-            </div>
-            <div class="calendar border rounded p-3">
+//             </div>
+//             <div class="calendar border rounded p-3">
           
-                <div class="border rounded bg-light">8</div>
-                <div class="border rounded bg-light">9</div>
-                <!-- Row for days 3 to 9 -->
-                <div class="border rounded bg-light">10</div>
-                <div class="border rounded bg-light">11</div>
-                <div class="border rounded bg-light">12</div>
-                <div class="border rounded bg-light">13</div>
-                <div class="border rounded bg-light">14</div>
+//                 <div class="border rounded bg-light">8</div>
+//                 <div class="border rounded bg-light">9</div>
+//                 <!-- Row for days 3 to 9 -->
+//                 <div class="border rounded bg-light">10</div>
+//                 <div class="border rounded bg-light">11</div>
+//                 <div class="border rounded bg-light">12</div>
+//                 <div class="border rounded bg-light">13</div>
+//                 <div class="border rounded bg-light">14</div>
     
-                </div>
+//                 </div>
 
             
-        </div>`
+//         </div>`
     
-    for(let i=1;i<=date[d];i++){
+//     for(let i=1;i<=date[d];i++){
        
-    }
-}
+//     }
+// }
 
 
 

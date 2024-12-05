@@ -1131,26 +1131,26 @@
 
 // const str = "hello world";
 
-const arr = [];
-const str = "hello world";
+// const arr = [];
+// const str = "hello world";
 
-for(let i=0;i<25;i++){
-  arr[i] = 0;
-}
-let con = 97;
+// for(let i=0;i<25;i++){
+//   arr[i] = 0;
+// }
+// let con = 97;
 
-for(let i=0;i<str.length;i++){
-  // console.log(str[i])
-  if(str.charCodeAt(i) != 32)
-    arr[str.charCodeAt(i)-con]++;
-  // arr[i] = arr[i]++;
-}
-console.log(arr)
-for(let i=0;i<arr.length;i++){
-  if(arr[i] != 0){
-    console.log(String.fromCharCode(i+con),arr[i])
-  }
-}
+// for(let i=0;i<str.length;i++){
+//   // console.log(str[i])
+//   if(str.charCodeAt(i) != 32)
+//     arr[str.charCodeAt(i)-con]++;
+//   // arr[i] = arr[i]++;
+// }
+// console.log(arr)
+// for(let i=0;i<arr.length;i++){
+//   if(arr[i] != 0){
+//     console.log(String.fromCharCode(i+con),arr[i])
+//   }
+// }
 
 
 // for(let i=0;i<str.length;i++){
@@ -1190,27 +1190,27 @@ for(let i=0;i<arr.length;i++){
 // ----*
 
 
-let rows = 5;
+// let rows = 5;
 
-for(let i=1;i<=rows;i++){
-  let row = ""
-  // for(let j=0;j<rows-i;j++){
-  //   row += "-";
-  // }
-  for(let j=rows-i;j>0;j--){
-    row += " ";
-  }
-  row += '*';
-  if(i != 1){
-    // 2n-1
-    for(let j=0;j<2*(i-1)-1;j++){
-      row +=" ";
-    }
-    row += "*";
-  }
+// for(let i=1;i<=rows;i++){
+//   let row = ""
+//   // for(let j=0;j<rows-i;j++){
+//   //   row += "-";
+//   // }
+//   for(let j=rows-i;j>0;j--){
+//     row += " ";
+//   }
+//   row += '*';
+//   if(i != 1){
+//     // 2n-1
+//     for(let j=0;j<2*(i-1)-1;j++){
+//       row +=" ";
+//     }
+//     row += "*";
+//   }
 
-  console.log(row)
-}
+//   console.log(row)
+// }
 
 
 
@@ -1283,9 +1283,492 @@ for(let i=1;i<=rows;i++){
 // custom_eval("4+5+9+8+10")
 
 
+// let i = 10 ;
+
+// console.log(i ** 2)
+
+// console.log(i)
+
+// console.log(Math.pow(10,2))
+
+// console.log(i **= 2)
+
+// console.log(i)
+
+
+// ==
+// ===
+
+// != // not checking any type
+// !==  // checking type as well with value
+
+
+// (condition) ? true : false
+// i === 100 && i >= 0 ? console.log("i is ", i) : console.log("i is not ", i)
+
+
+// logical operators 
+// &&
+// || 
+
+// let a = "hello"
+// if(!(a.length > 2)){
+//   console.log("I am true")
+// }
+// if(!(a.length > 7)){
+//   console.log("I am false")
+
+// }
+
+// 101010
+// // 1 byte = 8bits 
+
+// 101010101010101010100.. to 32bits numbers
+
+
+// & And 
+// | or 
+// ~ NOT
+// ^  XOR  1 0 -> 1 or 0 1 -> 1 else those cases it will give 0
+//  0, 0 -> 0, 1, 1 -> 1
+// let i = 12  // 1100 -> 0110
+// let j = 10  //  1010   00000000 00000000 00000000 00001010 
+// let and = i & j //  0100
+// let or = i | j //  1101
+
+// let not = ~j // 0101   11111111 11111111 11111111 11110101 -> second's complement operation -> -(00000000 00000000 00000000 00001010 + 1)  0+1 -> 1 -> 0000000 1011
+
+// console.log(not)
+// let xor = i ^ j; // 1 0 0 1
+
+
+// let leftShift = i << 1 // 00000000 00000000 00000000 0001100  -> 00000000 00000000 00000000 00011000 -> 16+8
+// //
+// let right = i >>> 1 // 00000000 00000000 00000000 0001100  -> 00000000 00000000 00000000 00000110 -> 
+
+// console.log("and",i,j,"->", and)
+
+// console.log("or",i,j,"->", or)
+
+// console.log(not)
+// console.log(xor)
+
+// console.log("leftshift",leftShift)
+// console.log("right",right)
+
+// let a = "hello "
+// let b = 1;
+// console.log(a) 
+// try {
+// //   //  sever data callling or fetching. Your server is going 
+//     eval("alert('Hello)");
+//     // if(b.toUpperCase()) throw "Its a number"
+//     // if(a.trim() == "hello") throw "String matched with our a" 
+//  }
+// catch(err){
+//   console.log("err","error coming in the block",)
+// }
+
+// let ageError = new Error("Age cannot be zero ")
+// let ourOfArray = new Error("Trying to access value outside the array length")
+// // console.log(customError)
+// let i = [12,13,14]
+// try{
+//   let age=0;
+//   console.log(age)
+//   let index = 3
+//   if(index > i.length-1 ){
+//     throw ourOfArray;
+//   }
+//   if(age == 0) throw ageError
+
+// }
+// catch(err){
+//   console.log("Error found here",err)
+// }
+// let p = 3
+// console.log(p.toPrecision(500));
+  // console.lo(a)
+
+//  Home work for monday 1 Dec 
+  // console.log("/")
+  // console.log("\")
+      // ________
+      // \      /
+      //  \    /
+      //   \  /
+      //    \/
+
+      // TODO APP 
+
+      // input <user can write some text and that get added when someone clicked on add button 
+
+      // add button 
+
+      // number name date 
+      // Table create a list of of all the items 
+  
+
+// binary number to decimal number
+
+// 0011 -> function binaryConversion -> 3
+
+// function binaryConversion(binary){
+//   let decimal = 0
+//   for(let i=0;i<binary.length;i++){
+//     // console.log(typeof(binary[binary.length-i-1]))
+//     decimal = decimal +  parseInt(binary[i]) * Math.pow(2,binary.length-1-i) // computation to find the number which will be generated by that bit
+//     console.log(typeof(decimal))
+//   }
+//   console.log(decimal)
+//   return 0
+// }
+// binaryConversion("0011")    // 1*2^0 + 0+ 1*2^2 + 0 +1*2^4
+
+
+// binary to digit 
+// number & number 
 
 
 
+// function decimalConversion(decimal){
+//   let str="";
+//   while(decimal > 0){
+//       let rem = decimal % 2; 
+//       // str += rem;
+//       str =  rem+str;
+     
+//       decimal = Math.floor(decimal/2)
+//     }
+//    console.log(str)
+// }
+// decimalConversion(6)  // 110
+
+
+// 2^0*0 +2^1 +2^2 +2^3
+
+
+// //  decimal number to binary number 
+
+// // 3 -> function() decimalCon -> 11
+// 16+8+4+2+1
+
+// let i=0;
+
+// console.log("i am here with i",i)
+
+// setTimeout(()=>{
+//   console.log("I am first")
+// },0)
+
+// setTimeout(()=>{
+//   console.log("I am second")
+// },0)
+
+// console.log("i am here second  i",i)
+
+
+
+// points = [2,3,1,4,5,6,71,34,25]
+
+
+// points.sort(function(a, b){return b-a});
+
+// console.log(points)
+
+// ----------
+
+// function binaryTodecimal(bin){
+//   let digit = 0;
+
+//   // write code to make a conversion from binary to decimal but both number as a type. 
+
+//   return digit
+// }
+
+
+// binaryTodecimal(1000)
+
+// 
+
+
+// recusion
+// add sum of 100 elements sn 
+
+// recursion(n) -> n + recursion(n-1)
+
+
+// function recursion(n){
+
+//   // terminating statement
+//   if(n == 0 || n == 1) return n;
+//   let current_num = n;
+//   return current_num + recursion(n-1);
+
+// }
+
+// factorial of number 
+
+
+// function rec_factorial(n){
+//   if(n == 0 || n == 1) return 1;
+//   return 5 * rec_factorial(n-1);
+// }
+
+// console.log(rec_factorial(5))
+
+
+// string is palendrome or not
+
+
+// jiij -> j j , iii
+
+
+// function palendromeChecker(str){
+//     if(str.length == 0 || str.length == 1){
+//       return true
+//     }
+//     if(str[0] === str[str.length-1]){
+//       return palendromeChecker(str.substring(1,str.length-1))
+//     }
+//     return false;
+
+
+
+// }
+// if(palendromeChecker("jdij")) console.log("is palendrome")
+// else console.log("not a palendrome")
+
+
+
+
+// function rec_decimalConversion(decimal){
+
+//   // let str="";
+//   // while(decimal > 0){
+//   //     let rem = decimal % 2; 
+//   //     // str += rem;
+//   //     str =  rem+str;
+     
+//   //     decimal = Math.floor(decimal/2)
+//   //   }
+//   //  console.log(str)
+// }
+// rec_decimalConversion(6)  // 110
+
+
+// let i = "Hello World"
+
+// console.log(recursion(100))
+
+
+//-----------4 dec
+
+// find a palendrome of a number 
+
+// 1010123
+// function pal_num(n){
+//   let rev = 0;
+//   let orginal = n;
+//   while(n > 0){
+//     let r = n %10; 
+//     rev  = rev*10 + r;
+//     n = Math.floor(n/10)
+//   }
+//   console.log("rev = ",rev)
+//   console.log("orginal = ",orginal)
+//   return orginal === rev
+
+// }
+// console.log(pal_num(123))
+
+
+// binary to decimal 
+// binrary number and decimal number 
+
+
+// function binaryTodecimal(num){
+//   let res = 0
+//   let p = 0;
+//   while(num> 0){
+//     let r = num % 10;
+//     res +=  r*Math.pow(2,p)
+//     num = Math.floor(num/10)
+//     p++;
+
+//   }
+//   return res
+
+// }
+
+// console.log(binaryTodecimal(10101))
+
+// function expression
+// function callMe(){
+//   let i =0;
+//   function hello(){
+//     return "hello Call me"+i;
+//   }
+//   return hello()
+
+// }
+
+// console.log(callMe())
+
+// {
+//   let i = 0;
+
+// }
+// {
+//   var j = 2; 
+
+// }
+
+// for(var j=0;j<5;j++){
+//   console.log(j)
+// }
+// console.log(j)
+
+// function hello(...args){
+//   // console.log(arguments)
+//   // console.log(Array.from(arguments))
+//   console.log(args)
+//   // var j=0;
+//   // console.log(j)
+// }
+// // console.log(j)
+// hello(2,4,5)
+
+// let arr = [1,2,3,4,5]
+
+
+// let ar = [...arr ] 
+
+// let obj = {a:1,b:2};
+
+// const clone_shallow = {...obj,c:3};
+
+// console.log(clone_shallow)
+
+
+// function returnTwo(){
+//   // code here 
+//   return [1,4]
+// }
+
+
+// let [i,j] = returnTwo();
+
+// console.log(i,j)
+
+// (IIFE)
+
+
+// (function(){
+//   console.log("hello I am IIFE Function")
+// })()
+
+
+//callback function 
+
+
+
+// function fetchData(fun){
+
+//   console.log("I am fetthing data from the server")
+//   setTimeout(()=>{
+//     console.log("waiting for timeout to finish")
+//     fun();
+//   },2000)
+// }
+
+// fetchData(() => console.log("Helllo I am a callback function"))
+
+
+// //  map, reduce,filter,search
+
+// const n = [2,3,4,52,3]
+// const new_arry =  n.map((i) => i*i)
+
+
+// console.log(n,new_arry)
+
+
+
+// let i=0;
+
+// let j = 2;
+
+// setTimeout(()=>{
+//   console.log(i)
+//   i++;
+// },0)
+
+// console.log(i)
+
+// setTimeout(()=>{
+//   console.log(i)
+//   i++;
+// },0)
+
+// console.log(j)
+
+// for(let i=0;i<10;i++){
+//   setTimeout(()=>{
+//     console.log(i)
+//   },1000)
+// }
+
+// lexical environment 
+
+// dynmaic environment this
+
+// function declaration
+
+'Use strict'
+function hello(){
+
+  var a = "hello I am here "
+
+  console.log(a)
+
+
+  console.log("Hello")
+  // console.log(this)
+}
+hello()
+
+//function expression 
+
+// const hell = ()=>{
+//   console.log(a)
+
+//   var a = "hello I am here "
+
+//   console.log("hell")
+// }
+// hell()
+
+function parentFun(){
+  var a = 12;
+  console.log("a",this)
+  function firstChild(){
+    console.log("b",this)
+    const child = {
+      a : 1,
+      greet : function() {console.log("hello I am a greet function",this.a)}
+    }
+    child.greet()
+  }
+  firstChild()
+}
+parentFun()
+
+
+
+
+
+// console.log(i)
 
 
 
