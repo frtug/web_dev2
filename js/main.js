@@ -1749,14 +1749,16 @@
 // }
 // hell()
 
+
 // function parentFun(){
 //   var a = 12;
 //   console.log("a",this)
 //   function firstChild(){
 //     console.log("b",this)
+//     // let self = this
 //     const child = {
 //       a : 1,
-//       greet : function() {console.log("hello I am a greet function",this.a)}
+//       greet : function() {console.log("hello I am a greet function",this)}
 //     }
 //     child.greet()
 //   }
@@ -1765,7 +1767,64 @@
 // parentFun()
 
 
-// 
+// // const a = function(){
+// //   console.log("a",this)
+// //   const b = function(){
+// //     console.log("b",this)
+// //     const c = {
+// //       hi:function(){
+// //         console.log(this)
+// //       }
+// //     }
+// //     c.hi()
+// //   }
+// //   b()
+// // }
+// // a()
+// const obj = {
+//   name:"billy",
+//   sing(){
+//     console.log('a',this)
+//     // let self=this
+//     var anotherFunc = ()=>{
+//           console.log("b",this)
+        
+      
+//     }
+//     anotherFunc()
+//   }
+// }
+// obj.sing()
+
+// var d ={
+//   name:"ab",
+//   say() {return () => console.log(this)}
+// }
+// d.say()
+
+// var d ={
+//   name:"ab",
+//   say: ()=> console.log(this)
+// }
+// d.say()
+
+
+
+// const character = {
+//   name: 'Simon',
+//   getCharacter(){
+//     return this.name; 
+//   }
+// }
+
+  
+  
+
+// const giveMeTheCharacterNOW = character.getCharacter.bind(character)
+ 
+// //How Would you fix this?
+// console.log('?', giveMeTheCharacterNOW()); //this should return 'Simon' bud doesn't
+// // 
 // function a(){
 //   console.log("hello")
 // }
@@ -1784,79 +1843,524 @@
 // // b.apply()
 // b.apply(null,a)
 
-const hero ={
-  name:"Mario",
-  health : 100,
-  // heal : function (){
+// const hero ={
+//   name:"Mario",
+//   health : 100,
+//   // heal : function (){
+//   // }
+//   heal(a,b){
+//     this.health += a+b
+//   },
+//   attack(p){
+//     this.health = this.health - p
+//   }
+// }
+
+// const pricess ={
+//   name:"Elf",
+//   health : 30,
+//   // heal : function (){
+//   // }
+// }
+
+// // console.log(hero)
+// // console.log(hero.health)
+
+// // hero.attack(40);
+
+// // console.log(hero.health)
+
+// console.log(pricess.health)
+
+// let a = [2,3]
+// hero.heal.call(pricess,1,2)
+// console.log(pricess.health)
+
+// hero.heal.apply(pricess,a)
+// console.log(pricess.health)
+
+// const healing = hero.heal.bind(pricess,2,3)
+// healing()
+
+// console.log(pricess.health)
+
+// // const [a,b] = a
+
+// // .call
+// // .apply 
+// // .bind
+
+// function abc(){
+//   return function a1(){
+//     let i = 10
+//     return function b1(){
+//       return "Hello Abc "+i
+//     }
+//   }
+// }
+
+// // console.log(i)
+
+// let res = abc()
+// let res1 = res()
+// console.log(res)
+// console.log(res1())
+
+// console.log(res()())
+
+// // let t = 0
+// // for loop
+// // t += c[i]
+// // let arr = [add,multiply,divide]
+
+// let sum = arr.reduce((t,c)=>{return t+c},0)
+
+// console.log(sum)
+
+
+
+// function addTwo(a){
+// 	return a+2
+// }
+// function multiTwo(a){
+// 	return a*10
+// }
+// const numbers = [addTwo,multiTwo];
+// // let sum = 1
+// // for i 
+// // sum += i
+// const n = numbers.reduceRight((t,f)=>f(t),1)
+// console.log(n)
+
+
+// function declaration 
+// console.log(abc)
+
+// function abc(){
+//   console.log("Hello here")
+// }
+
+
+// console.log(fun)
+
+// function expression 
+// var fun = function (){
+//   console.log("called me ")
+// }
+
+// Call By Value / Call by Reference
+
+// let a = 10;
+// let b = 30;
+
+// b = a;   // call by value 
+// a++;
+
+// let obj ={ 
+//   name:"abhi",
+//   hobbies:{
+//     coding: 3,
+//     problem_solving : 7,
+//   }
+// }
+// let obj1 ={ 
+//   name:"qwerty",
+//   hobbies:{
+//     painting: 3,
+//     gardening : 7,
+//   }
+// }
+
+// console.log(obj1 === obj)
+
+// obj = obj1; // sharing their references
+// obj = {...obj1} // shallow cloning
+
+// console.log(obj1 === obj)
+
+
+// obj = Object.assign({},obj1) // shallow cloning
+
+
+// structuredClone // deep cloning -> 
+
+// obj = JSON.parse(JSON.stringify(obj1)) 
+// // deep cloning
+
+// let obj2 = structuredClone(obj1) //dee
+
+// console.log(obj2)
+
+
+
+// obj.hobbies = {}
+
+// console.log(obj)
+
+
+// console.log(obj1)
+
+// obj = JSON.stringify(obj1) // // deep clone  not performance efficent
+
+// console.log()
+
+
+
+
+// obj1.name = "Hello"
+// obj.name = "mandy"
+
+// console.log(obj)
+// console.log(obj1)
+
+
+// console.log(a,b)
+
+
+// closures
+
+// function abc(){
+//   let i =0;
+//   return function(){
+//     console.log("closures",++i)
+//   }
+// }
+
+// let fun = abc();
+// fun()
+// fun()
+// function are first classe varible
+// class 
+
+
+// function gg(){
+//   console.log("hello")
+// }
+// gg()
+// gg.age="28"
+
+// console.log(gg)
+
+// let view;
+// function NuclearLaunchCode(){
+//   if(view){
+//     console.log("You already created an object")
+//     return 
+//   }
+//   else {
+//     view = "set"
+//   }
+//   let timePassed =0;
+  
+//   function launch(){
+//     timePassed  = -1
+//     console.log("BOOOM!!!!🔥")
+//   }
+//   setInterval(()=>timePassed++,1000)
+
+//   function peaceTime(){
+//     console.log(timePassed)
+//   }
+//   return {
+//     peaceTime
+//   }
+// }
+
+// let nlc = NuclearLaunchCode();
+
+// let nl = NuclearLaunchCode();
+
+
+
+// NuclearLaunchCode.whatTime()
+
+// function hero(ar){
+//   // let {a,b} = ob 
+//   // ob.a = 100;
+
+//   // ob.b = 111
+//   // ar[0] = 230
+//   let a = [...ar] // 
+
+//   a[0] = 100
+//   console.log(a)
+//   // a = 12;
+//   // b = 23;
+//   // console.log(ob.a,ob.b) // 12 23
+
+
+// }
+
+// Call by value 
+// let a = 1;
+// let b = 2;
+
+// Call by reference for objects
+// let ob = {a:1,b:2}
+
+
+//arrays
+// let ar = [1,2,3,4]
+// console.log(ar) // 1,2
+
+// hero(ar)
+
+// console.log(ar) // 1,2
+
+
+// function multiply(a,b){
+//   return a*b; 
+// }
+
+// let multiplyByTwo = multiply.bind(this,2) // return (2*b)
+// let multiplyByTen = multiply.bind(this,10)
+
+// console.log(multiplyByTwo(100)) // 200
+
+// console.log(multiplyByTen(10)) // 100
+
+
+
+// ProtoType inhertance
+
+// .__proto__
+
+// let car = {
+//   no_tires: 4,
+//   window: 6,
+//   color:"white",
+// }
+
+// let hero = {
+//   name:"Thor",
+//   attack(){
+//     console.log(this.name + "Is attacking to -?" )
+//   },
+//   sing(){
+//     console.log("I am singing here in Asgard")
+//   }
+// }
+
+// // let prince = {
+// //   name:"Alexzendar",
+// //   cry(){
+// //     console.log("I am crying")
+// //   }
+// // }
+// // prince.__proto__ = hero
+// let prince = Object.create(hero)
+
+// // prince.name ="Alexzendar";
+// // prince.cry = function cry(){
+// //   console.log("i am crying")
+// // }
+// for(prop in prince){
+//   if(prince.hasOwnProperty(prop)){
+//     console.log(prince[prop])
+//   }
+// }
+// console.log(prince)
+
+// prince.__proto__ = hero;
+
+// console.log(hero.isPrototypeOf(prince))
+
+// for(prop in prince){
+//   if(prince.hasOwnProperty(prop)){
+//     console.log(prince[prop])
+//   }
+// }
+
+
+
+// Array.__proto__ = 
+
+
+// Array.prototype.map = function(){
+//   let arr = [];
+//   console.log(this)
+//   for(let i=0;i<this.length;i++){
+//     arr.push(this[i]+"🔥")
+//   }
+//   return arr
+// }
+
+// let ar =[1,23,4,5]
+
+// // 1🔥, 23🔥, 4🔥, 5🔥
+// console.log(ar.map())
+// Date.prototype.getLastYear = function(){
+//   return this.getFullYear() - 1
+// }
+
+
+// let d = new Date('2022-03-25');
+
+// console.log(d.getLastYear())
+// console.log(d.getFullYear() -1)
+
+// // bind  with help of call or apply
+
+
+
+// function multi(a,v){
+
+// }
+// function sum(a,v){
+  
+// }
+
+// const elf ={
+//   name:"Robin",
+//   weapon:"Bow",
+//   attack(){
+//     return "attacking by"+ this.name
+//   }
+// }
+// const elf2 ={
+//   name:"Eve",
+//   weapon:"fire",
+//   attack(){
+//     return "attacking by"+ this.name
+//   }
+// }
+// console.
+
+
+// Factory function 
+
+// function elf(name,weapon){
+//   return {
+//     name:name,
+//     weapon:weapon,
+//     attack(){
+//           return "attacking by"+ this.name
+//     }
+//   }
+// }
+
+// const robin = elf("Robin","bow")
+// const eve = elf("Eve","fire")
+
+
+// console.log(robin.attack())
+// console.log(eve.attack())
+
+// const elfPowers = {
+//   attack(){
+//       return "attacking by "+ this.name
+//   },
+//   builing(){
+//     return "Building by "+ this.name
+
+//   },
+//   singing(){
+//     return "attacking by "+ this.name
+//   }
+// }
+
+// function elf(name,weapon){
+//   return {
+//     name:name,
+//     weapon:weapon,
+//   }
+// }
+
+// const robin = elf("Robin","bow")
+// robin.attack = elfPowers.attack
+// // robin.builing = elfPowers.builing
+// robin.singing = elfPowers.builing
+
+// const eve = elf("Eve","fire")
+// eve.attack = elfPowers.attack
+// eve.builing = elfPowers.builing
+// // for(prop in robin){
+// //   console.log(prop)
+// // }
+// console.log(robin.attack())
+// console.log(eve.builing())
+
+
+
+// const elfPowers = {
+//   attack(){
+//       return "attacking by "+ this.name
+//   },
+//   builing(){
+//     return "Building by "+ this.name
+
+//   },
+//   singing(){
+//     return "attacking by "+ this.name
+//   }
+// }
+
+// function elf(name,weapon){
+//   let newElf = Object.create(elfPowers)
+//   newElf.name = name
+//   newElf.weapon = weapon
+//   return newElf
+// }
+
+// const robin = elf("Robin","bow")
+
+// const eve = elf("Eve","fire")
+// console.log(robin.attack())
+// console.log(eve.builing())
+
+
+// Constructor Function 
+
+// let r = new Array()
+// let f = new Function()
+
+
+// let n = new Number(3)
+// typeof 
+// let i = 3;
+// // === and == 
+
+// let s = new String("Text me ")
+// let str = "Text me "
+
+
+function Elf(name,weapon){
+  this.name = name
+  this.weapon = weapon;
+  // this.attack = function attack(){
+
   // }
-  heal(a,b){
-    this.health += a+b
-  },
-  attack(p){
-    this.health = this.health - p
-  }
 }
 
-const pricess ={
-  name:"Elf",
-  health : 30,
-  // heal : function (){
-  // }
+Elf.prototype.attack = function(){
+      return this.name +" is attacking by "+ this.weapon
 }
-
-// console.log(hero)
-// console.log(hero.health)
-
-// hero.attack(40);
-
-// console.log(hero.health)
-
-console.log(pricess.health)
-
-let a = [2,3]
-hero.heal.call(pricess,1,2)
-console.log(pricess.health)
-
-hero.heal.apply(pricess,a)
-console.log(pricess.health)
-
-const healing = hero.heal.bind(pricess,2,3)
-healing()
-
-console.log(pricess.health)
-
-// const [a,b] = a
-
-// .call
-// .apply 
-// .bind
-
-function abc(){
-  return function a1(){
-    let i = 10
-    return function b1(){
-      return "Hello Abc "+i
-    }
-  }
+Elf.prototype.building = function(){
+  return this.name +" is Building by "+ this.weapon
 }
+let robin = new Elf("Robin","Bow 🏹")
 
-// console.log(i)
+// console.log(robin.__proto__)
+// console.log(Elf instanceof robin)
 
-let res = abc()
-let res1 = res()
-console.log(res)
-console.log(res1())
+// console.log(robin)
+console.log(robin.attack())
 
-console.log(res()())
+let Eve = new Elf("Eve","Fire 🔥")
+// console.log(Eve)
+console.log(Eve.attack())
 
-// let t = 0
-// for loop
-// t += c[i]
-// let arr = [add,multiply,divide]
 
-let sum = arr.reduce((t,c)=>{return t+c},0)
+// class Eve{
+//   constructor(){
 
-console.log(sum)
+//   }
+//   function()
+// }
+
+
+
+
 
 
 
