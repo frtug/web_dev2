@@ -2041,30 +2041,31 @@
 
 // console.log(gg)
 
-// let view;
-// function NuclearLaunchCode(){
-//   if(view){
-//     console.log("You already created an object")
-//     return 
-//   }
-//   else {
-//     view = "set"
-//   }
-//   let timePassed =0;
+let view;
+function NuclearLaunchCode(){
+  let timer = 200;
+  if(view){
+    console.log("You already created an object")
+    return 
+  }
+  else {
+    view = "set"
+  }
+  let timePassed =0;
   
-//   function launch(){
-//     timePassed  = -1
-//     console.log("BOOOM!!!!🔥")
-//   }
-//   setInterval(()=>timePassed++,1000)
+  function launch(){
+    timePassed  = -1
+    console.log("BOOOM!!!!🔥")
+  }
+  setInterval(()=>timePassed--,1000)
 
-//   function peaceTime(){
-//     console.log(timePassed)
-//   }
-//   return {
-//     peaceTime
-//   }
-// }
+  function peaceTime(){
+    console.log(timePassed)
+  }
+  return {
+    peaceTime
+  }
+}
 
 // let nlc = NuclearLaunchCode();
 
@@ -2185,6 +2186,8 @@
 //   return arr
 // }
 
+
+
 // let ar =[1,23,4,5]
 
 // // 1🔥, 23🔥, 4🔥, 5🔥
@@ -2265,20 +2268,23 @@
 //     weapon:weapon,
 //   }
 // }
+// elf.prototype.attack = function(){
+//     return "attacking by "+ this.name
+// }
 
 // const robin = elf("Robin","bow")
-// robin.attack = elfPowers.attack
+// // robin.attack = elfPowers.attack
 // // robin.builing = elfPowers.builing
-// robin.singing = elfPowers.builing
+// // robin.singing = elfPowers.builing
 
-// const eve = elf("Eve","fire")
-// eve.attack = elfPowers.attack
-// eve.builing = elfPowers.builing
-// // for(prop in robin){
-// //   console.log(prop)
-// // }
+// // const eve = elf("Eve","fire")
+// // eve.attack = elfPowers.attack
+// // eve.builing = elfPowers.builing
+// for(prop in robin){
+//   console.log(prop)
+// }
 // console.log(robin.attack())
-// console.log(eve.builing())
+// // console.log(eve.builing())
 
 
 
@@ -2324,40 +2330,173 @@
 // let str = "Text me "
 
 
-function Elf(name,weapon){
-  this.name = name
-  this.weapon = weapon;
-  // this.attack = function attack(){
+// function Elf(name,weapon){
+//   this.name = name
+//   this.weapon = weapon;
+//   // this.attack = function attack(){
 
-  // }
-}
-
-Elf.prototype.attack = function(){
-      return this.name +" is attacking by "+ this.weapon
-}
-Elf.prototype.building = function(){
-  return this.name +" is Building by "+ this.weapon
-}
-let robin = new Elf("Robin","Bow 🏹")
-
-// console.log(robin.__proto__)
-// console.log(Elf instanceof robin)
-
-// console.log(robin)
-console.log(robin.attack())
-
-let Eve = new Elf("Eve","Fire 🔥")
-// console.log(Eve)
-console.log(Eve.attack())
-
-
-// class Eve{
-//   constructor(){
-
-//   }
-//   function()
+//   // }
 // }
 
+// Elf.prototype.attack = function(){
+//       return this.name +" is attacking by "+ this.weapon
+// }
+// Elf.prototype.building = function(){
+
+//   // -------------------------------
+//   // console.log(this)
+//   // let self = this
+//   // return function(){
+//   //   // console.log(self)
+//   //   return self.name +" is Building by "+ self.weapon
+//   // }
+//   // ----------------------
+//   console.log(this)
+//   let fun = function(){
+//     // console.log(self)
+//     return this.name +" is Building by "+ this.weapon
+//   }
+//   return fun.bind(this);
+
+// }
+// let robin = new Elf("Robin","Bow 🏹")
+
+// // console.log(robin.__proto__)
+//   // console.log(robin instanceof Elf)
+// // console.log(robin)
+// // console.log(robin.attack())
+
+// let Eve = new Elf("Eve","Fire 🔥")
+// // console.log(Eve)
+// console.log(Eve.building()())
+
+
+// create your own name function in the Array Constructor function 
+// which is going to return a object with your properties 
+
+
+// class Elf{
+//   constructor(name,weapon){
+//     this.name = name
+//     this.weapon = weapon
+//   }
+//   attack(){
+//     return this.name +" is attacking by "+ this.weapon
+//   }
+//   building(){
+//       return this.name +" is Building by "+ this.weapon
+//   }
+// }
+// let r = new Elf("Robin","Bow")
+// let e = new Elf("Eve","Fire")
+// console.log(r.attack())
+// console.log(e.building())
+
+
+
+// Write a Car class which is going to ask for user for tire,color, model, window
+// and create a two object out of it 
+// and check the Instanceof 
+
+class Car{ // bases  private public 
+
+  #chasis= "Toon" // private 
+  seat_cover = "Leather"
+  constructor(tire,color,model,windows){
+    console.log("I am a super class")
+    this.tire = tire
+    this.color = color;
+    this.model = model;
+    this.windows = windows
+  }
+
+  #setChasis(c){
+    this.#chasis = c;
+  } 
+  AuthenticationFunction(s,new_chasis){
+    let secret = "788334"
+    if(s === secret){
+      return this.#setChasis(new_chasis)
+    }
+    else {
+      return "Failed the update the value of chasis "
+    }
+  }
+  getChasis(){
+    // console.log(this.#chasis )
+    return this.#chasis
+  } 
+
+  setColor(color){
+    this.color = color
+    return "Color has been set to "+ this.color
+  }
+
+  getColor(){
+    return this.color;
+  }
+
+  setTire(tire){
+    this.tire = tire
+    return "tire has upgraded set to "+ this.tire
+  }
+
+  getTire(){
+    return this.tire;
+  }
+
+  
+}
+class Suv extends Car{   // derived class 
+  constructor(tire,color,model,windows,drive){
+    super(tire,color,model,windows)
+    this.drive = drive
+  }
+  combinedSetValues(color,tire){
+    super.setColor(color)
+    super.setTire(tire)
+    return "Changed happened successful";
+  }
+  setDrive(drive){
+    this.drive = drive
+    return "Dive has been set to "+ this.drive
+  }
+  getDrive(){
+    return this.drive
+  }
+}
+
+let swift = new Car(4,"red","VZI",6)
+// console.log(swift.setChasis("Roon"))
+// console.log(swift.getChasis())
+console.log(swift.model = "78343")
+console.log(swift.model)
+console.log(swift.AuthenticationFunction("788334","XSHDHE#$J"))
+console.log(swift.getChasis())
+// console.log(swift.combinedSetValues("blue",10))
+// console.log(swift.getColor())
+// console.log(swift.getTire())
+
+// let truck = new Suv(10,"blue","Heavy Duty",6,"4x4")
+
+// // console.log( swift instanceof Car)
+// // console.log(truck instanceof Suv)
+
+// // console.log(swift)
+// // console.log(truck.getColor())
+// // console.log(truck.setColor("Black"))
+
+// // console.log(truck.setCol("Green"))
+
+// // console.log(truck.getTire())
+// // console.log(truck.setTire(2))
+
+// console.log(truck.combinedSetValues("yellow",6))
+// console.log(truck.getColor())
+// console.log(truck.getTire())
+
+// console.log(truck.getDrive())
+// console.log(truck.setDrive("2x2"))
 
 
 
