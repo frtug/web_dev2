@@ -2398,81 +2398,81 @@ function NuclearLaunchCode(){
 // and create a two object out of it 
 // and check the Instanceof 
 
-class Car{ // bases  private public 
+// class Car{ // bases  private public 
 
-  #chasis= "Toon" // private 
-  seat_cover = "Leather"
-  constructor(tire,color,model,windows){
-    console.log("I am a super class")
-    this.tire = tire
-    this.color = color;
-    this.model = model;
-    this.windows = windows
-  }
+//   #chasis= "Toon" // private 
+//   seat_cover = "Leather"
+//   constructor(tire,color,model,windows){
+//     console.log("I am a super class")
+//     this.tire = tire
+//     this.color = color;
+//     this.model = model;
+//     this.windows = windows
+//   }
 
-  #setChasis(c){
-    this.#chasis = c;
-  } 
-  AuthenticationFunction(s,new_chasis){
-    let secret = "788334"
-    if(s === secret){
-      return this.#setChasis(new_chasis)
-    }
-    else {
-      return "Failed the update the value of chasis "
-    }
-  }
-  getChasis(){
-    // console.log(this.#chasis )
-    return this.#chasis
-  } 
+//   #setChasis(c){
+//     this.#chasis = c;
+//   } 
+//   AuthenticationFunction(s,new_chasis){
+//     let secret = "788334"
+//     if(s === secret){
+//       return this.#setChasis(new_chasis)
+//     }
+//     else {
+//       return "Failed the update the value of chasis "
+//     }
+//   }
+//   getChasis(){
+//     // console.log(this.#chasis )
+//     return this.#chasis
+//   } 
 
-  setColor(color){
-    this.color = color
-    return "Color has been set to "+ this.color
-  }
+//   setColor(color){
+//     this.color = color
+//     return "Color has been set to "+ this.color
+//   }
 
-  getColor(){
-    return this.color;
-  }
+//   getColor(){
+//     return this.color;
+//   }
 
-  setTire(tire){
-    this.tire = tire
-    return "tire has upgraded set to "+ this.tire
-  }
+//   setTire(tire){
+//     this.tire = tire
+//     return "tire has upgraded set to "+ this.tire
+//   }
 
-  getTire(){
-    return this.tire;
-  }
+//   getTire(){
+//     return this.tire;
+//   }
 
   
-}
-class Suv extends Car{   // derived class 
-  constructor(tire,color,model,windows,drive){
-    super(tire,color,model,windows)
-    this.drive = drive
-  }
-  combinedSetValues(color,tire){
-    super.setColor(color)
-    super.setTire(tire)
-    return "Changed happened successful";
-  }
-  setDrive(drive){
-    this.drive = drive
-    return "Dive has been set to "+ this.drive
-  }
-  getDrive(){
-    return this.drive
-  }
-}
+// }
+// class Suv extends Car{   // derived class 
+//   constructor(tire,color,model,windows,drive){
+//     super(tire,color,model,windows)
+//     this.drive = drive
+//   }
+//   combinedSetValues(color,tire){
+//     super.setColor(color)
+//     super.setTire(tire)
+//     return "Changed happened successful";
+//   }
+//   setDrive(drive){
+//     this.drive = drive
+//     return "Dive has been set to "+ this.drive
+//   }
+//   getDrive(){
+//     return this.drive
+//   }
+// }
 
-let swift = new Car(4,"red","VZI",6)
-// console.log(swift.setChasis("Roon"))
+// let swift = new Car(4,"red","VZI",6)
+// // console.log(swift.setChasis("Roon"))
+// // console.log(swift.getChasis())
+// console.log(swift.model = "78343")
+// console.log(swift.model)
+// console.log(swift.AuthenticationFunction("788334","XSHDHE#$J"))
 // console.log(swift.getChasis())
-console.log(swift.model = "78343")
-console.log(swift.model)
-console.log(swift.AuthenticationFunction("788334","XSHDHE#$J"))
-console.log(swift.getChasis())
 // console.log(swift.combinedSetValues("blue",10))
 // console.log(swift.getColor())
 // console.log(swift.getTire())
@@ -2497,6 +2497,139 @@ console.log(swift.getChasis())
 
 // console.log(truck.getDrive())
 // console.log(truck.setDrive("2x2"))
+
+
+
+// Create a class called Hero Class height, weight, isMortal,  
+
+// class Marvel 
+// name, weapon,
+// Flying, Building, attack
+// Iron man, thor
+
+
+// class DC 
+// Super man and batman
+// name, weapon, weakness 
+// Flying, Building, attack,lasers 
+
+// class Hero{
+//   constructor(){
+//     this.height = height;
+//     this.weight = weight;
+//     this.isMortal = isMortal;
+//   }
+// }
+
+
+// class Hero{ // base class 
+//   #clothes = "Fancy"
+//   static run = "Not running"
+//   constructor(name,isFly,speciality){
+//     this.name = name
+//     this.isFly = isFly;
+//     this.speciality = speciality;
+//   }
+//   strong(){
+//     // let self = this;
+//     for(let key in this){
+//       console.log(key,this[key])
+//     }
+//     return  " is the strongest Hero with  "+this.speciality
+//   }
+//   #accessClothes(){
+//     return this.#clothes;
+//   }
+//   static helloClass(){
+//     return "Hello "+this
+//   }
+// }
+// class Marvel extends Hero{
+//   // clothes = "Semi-Fancy"
+//   constructor(name,isFly,speciality,isAvenger){
+//     super(name,isFly,speciality)
+//     this.isAvenger=isAvenger;
+//   }
+//   strong(){
+//     // console.log(super.strong())
+//     return this.name+ " is the strongest Hero with Marvel "+this.speciality
+//   }
+// }
+// class DC extends Hero{
+//   // clothes = "Strong"
+//   constructor(name,isFly,speciality,isMutant){
+//     super(name,isFly,speciality)
+//     this.isMutant=isMutant;
+//   }
+// }
+
+// let ironMan = new Marvel("Ironman",true,"Genius",true)
+// let drStrange = new Marvel("Dr.Strange",true,"Magic",true)
+
+// let batman = new DC("Batman",false,"Rich",false)
+// let Adam = new DC("Black Adam",true,"Power",true)
+
+// // console.log(Marvel.run)
+// let h = new Hero("Flash",false,"speed")
+
+// // console.log(Hero.helloClass())
+
+// console.log(h.strong())
+
+// // console.log(ironMan instanceof DC)
+// console.log(ironMan.strong())
+
+
+
+// Functional Programming 
+
+// Function should be a pure function
+let i = 1
+function abc(a,b){
+  return a+b;
+}
+i = abc(3,4)
+
+console.log(i)
+
+
+let a = [1,2,3,4,2];
+
+function aa(a){
+  let b = [];
+  for(let i=0;i<a.length;i++){
+    b[i] *= a[i]
+  }
+  b = a.map(e => {
+    e *= e;
+  });
+  return b
+}
+
+aa(a)
+console.log(a)
+
+
+
+
+// let multi = (a,b)=>{
+//   return a*b
+// }
+// let multi = (a) => (b) => a*b; 
+
+// console.log(multi(5)(4))
+
+
+let multi = (a,b)=>{
+  return a*b;
+}
+let multiByTwo = multi.bind(null,2)
+
+let multiByFive = multi.bind(null,5)
+
+console.log(multiByTwo(4))
+
+console.log(multiByFive(8))
 
 
 
