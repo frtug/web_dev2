@@ -2930,7 +2930,7 @@ function NuclearLaunchCode(){
 // console.log(er)
 
 // :: TODO: Save your api somewhere safe, this is not the safe way
-const url = 'https://api.tomorrow.io/v4/weather/forecast?location=Bangalore&timesteps=1d&apikey=H61vqaWSocSafnAPtlUNgudEorDPGenL';
+const url = 'https://api.tomorrow.io/v4/weather/forecast?location=Bangalore&timesteps=1d&apikey=={APIKEY}';
 
 const options = {method: 'GET', headers: {accept: 'application/json'}};
 
