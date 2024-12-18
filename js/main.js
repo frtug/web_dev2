@@ -2584,30 +2584,30 @@ function NuclearLaunchCode(){
 // Functional Programming 
 
 // Function should be a pure function
-let i = 1
-function abc(a,b){
-  return a+b;
-}
-i = abc(3,4)
+// let i = 1
+// function abc(a,b){
+//   return a+b;
+// }
+// i = abc(3,4)
 
-console.log(i)
+// console.log(i)
 
 
-let a = [1,2,3,4,2];
+// let a = [1,2,3,4,2];
 
-function aa(a){
-  let b = [];
-  for(let i=0;i<a.length;i++){
-    b[i] *= a[i]
-  }
-  b = a.map(e => {
-    e *= e;
-  });
-  return b
-}
+// function aa(a){
+//   let b = [];
+//   for(let i=0;i<a.length;i++){
+//     b[i] *= a[i]
+//   }
+//   b = a.map(e => {
+//     e *= e;
+//   });
+//   return b
+// }
 
-aa(a)
-console.log(a)
+// aa(a)
+// console.log(a)
 
 
 
@@ -2620,29 +2620,354 @@ console.log(a)
 // console.log(multi(5)(4))
 
 
-let multi = (a,b)=>{
-  return a*b;
+// let multi = (a,b)=>{
+//   return a*b;
+// }
+// let multiByTwo = multi.bind(null,2)
+
+// let multiByFive = multi.bind(null,5)
+
+// console.log(multiByTwo(4))
+
+// console.log(multiByFive(8))
+
+
+// async of js 
+
+// new Promise -> pending, fulfulled, rejected
+
+
+// Callback
+
+// Flying('up',"10",function (){
+//   Flying('down',"10",function(){
+//     Flying('up',"10",function(){
+//       return true
+//   })
+// })
+// }
+// )
+
+// Flying('up',"10")
+// .then(()=>Flying('down',"10"))
+// .then(()=>Flying('up',"10"))
+// .then(data)=> console.log("data"))
+
+// facebook('/users', function(){
+//   if(error){
+//     throw Error;
+//   }
+//   catch(err){
+//     console.log(err)
+//   }
+//   facebook('/users/abhi',function(){
+//     if(error){
+//       throw Error;
+//     }
+//     catch(err){
+//       console.log(err)
+//     }
+//     facebook('/users/abhi/profile',function(){
+//       if(error){
+//         throw Error;
+//       }
+//       catch(err){
+//         console.log(err)
+//       }
+//   }
+// })
+
+// console.log("I am the first")
+
+// setTimeout(()=>console.log("I am a async Callback Queue"),1000)
+
+// let promise = new Promise((resolve,reject)=>{
+//   if(true)
+//     resolve("I am resolved ")
+//   else reject("I am reject ")
+// })
+// promise.then((res)=>console.log(res))
+
+// setTimeout(()=>console.log("I am a async Callback Queue"),0)
+
+// console.log("I am the first")
+
+// let ageError = new Error("Age can't be 0 ") 
+// let promise = new Promise((resolve,reject)=>{
+//   if(true)
+//     resolve("I am resolved ")
+//   else reject("I am reject ")
+// })
+
+// promise
+// .then((res)=> res+"!")
+// .then((r)=>r+"?")
+// .then((r1)=>{
+//   if(r1.age ===  0)
+//     throw ageError;
+//   return 1;
+// })
+// .catch((err)=>console.log("error has been occoured",err))
+// .then((e)=>console.log(e))
+
+
+// fetch('https://jsonplaceholder.typicode.com/posts').
+// then(response => response.json())
+// .then((res)=> console.log(res))
+
+
+
+// let promise1 = new Promise((resolve,reject)=>{
+//   setTimeout(resolve,1000,"Promise1")
+// })
+// let promise2 = new Promise((resolve,reject)=>{
+//   setTimeout(resolve,100,"Promise2")
+// })
+// let promise3 = new Promise((resolve,reject)=>{
+//   setTimeout(reject,4000,"Promise3")
+// })
+
+// Promise.all([promise1,promise2,promise3]).then((result)=>{
+//   console.log(result)
+// }).catch((err)=> console.log("oops error",err))
+
+
+// let urls = [
+//   "https://jsonplaceholder.typicode.com/comments",
+//   "https://jsonplaceholder.typicode.com/albums",
+//   'https://jsonplaceholder.typicode.com/posts'
+// ]
+// Promise.all(
+//   urls.map((url)=> fetch(url)
+//     .then(res => res.json())
+//     .then(result =>{
+//       console.log("comments",result[0])
+//       console.log("albums",result[1])
+//       console.log("posts",result[2])
+//   }))
+// )
+
+
+// let promise = new Promise((resolve,reject)=>{
+//   if(true)
+//     resolve("I am resolved ")
+//   else reject("I am reject ")
+// })
+// promise.then((res)=>console.log(res))
+
+
+
+// async function fetchData(){
+//   try{
+//     let promise =  await new Promise((resolve,reject)=>{
+//       if(false)
+//         resolve("I am resolved ")
+//       else reject("I am reject ")
+//     })
+//     try{
+//       // part error
+
+//     }
+//     catch(err){
+
+//     }
+//     console.log(promise)
+//   }
+//   catch(err){
+//     console.log("Ooops Error",err)
+//   }
+  
+  
+// } 
+// fetchData()
+
+// for await 
+
+
+// let urls = [
+//   "https://jsonplaceholder.typicode.com/comments",
+//   "https://jsonplaceholder.typicode.com/albums",
+//   'https://jsonplaceholder.typicode.com/posts'
+// ]
+// Promise.all(
+//   urls.map((url)=> fetch(url)
+//     .then(res => res.json())
+//     .then(result =>{
+//       console.log("comments",result[0])
+//       console.log("albums",result[1])
+//       console.log("posts",result[2])
+//   }))
+// )
+
+// 
+
+// let urls = [
+//   "https://jsonplaceholder.typicode.com/comments",
+//   "https://jsonplaceholder.typicode.com/albums",
+//   'https://jsonplaceholder.typicode.com/posts'
+// ]
+
+// let data= []
+// const fetchData2 = async function(){
+//   const arrayOfPromises = urls.map(url => fetch(url))
+
+//   for await (let req of arrayOfPromises){
+//     const data = await req.json()
+//     console.log(data)
+//   }
+// }
+// fetchData2()
+
+
+
+
+// const fetchData = async function(){
+//   const [comments,albums,posts] =  await Promise.all(urls.map(
+//     async function (url){
+//       const res = await fetch(url);
+//       // const result = res.json()
+//       return res.json();
+//     }))
+//     console.log("comments",comments)
+//     console.log("albums",albums)
+//     console.log("posts",posts)
+
+// }
+// console.log(fetchData())
+
+
+
+
+// Promise.all
+// Promise.race([])
+// // sequencial manner 
+// Promise.allSettled([])
+
+// const promisify = (item,delay) => new Promise((resolve,reject)=> setTimeout(()=> {
+//   if(item == 'c') reject(item)
+//   else resolve(item)
+// },delay))
+
+// const a = ()=> promisify('a',100);
+// const b = ()=> promisify('b',1000);
+// const c = ()=> promisify('c',2000);
+
+// async function parallel(){
+//   try{
+//   const promises = [a(),b(),c()];
+//   const [o1,o2,o3] = await Promise.all(promises)
+//   console.log(` Promises result is Parallel Execution is ${o1}, ${o2}, ${o3}`)
+// }
+// catch(err){
+//   console.log("Parallel failed ")
+// }
+// }
+
+
+
+// async function racing (){
+//   const promises = [a(),b(),c()];
+//   const [o1] = await Promise.race(promises)
+//   console.log(`fastest promises is ${o1}`)
+// }
+
+// async function sequence(){
+//   const aa = await a();
+//   const bb  = await b();
+//   const cc = await c();
+//   console.log(`Sequence runs all the promises one by one ${aa} ${bb} ${cc}`)
+// }
+
+// racing() // 
+
+// parallel() // 
+
+// // sequence() // 
+
+
+
+// async function allSettledPromise (){
+//   const promises = [a(),b(),c()];
+//   const o1 = await Promise.allSettled(promises)
+//   console.log(o1)
+// }
+// allSettledPromise()
+
+
+// fetch('https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=H61vqaWSocSafnAPtlUNgudEorDPGenL')
+// .then(res=>res.json()).then(r=> console.log(r))
+
+// let e = new Error
+// try{
+
+// }
+// catch{
+
+// }
+
+// let e = new Error('I am a error');
+// console.log(e.message)
+// console.log(e.name)
+
+// console.log(e.stack)
+
+// class AuthentionError extends Error{
+//   constructor(msg,sec){
+//     super(msg)
+//     this.secret = sec
+//   }
+// }
+// class TypeError extends Error{
+//   constructor(msg="Some Type 0 mistake ",sec){
+//     super(msg)
+//     this.secret = sec
+//   }
+// }
+// throw new TypeError
+
+// let er = new AuthentionError('Failed to Authenticate',"Secret is hello")
+
+// console.log(er)
+
+// :: TODO: Save your api somewhere safe, this is not the safe way
+const url = 'https://api.tomorrow.io/v4/weather/forecast?location=Bangalore&timesteps=1d&apikey=H61vqaWSocSafnAPtlUNgudEorDPGenL';
+
+const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error(err));
+
+
+if (rainIntensityMax > 0 && precipitationProbabilityMax > 50) {
+    return "Rainy";
 }
-let multiByTwo = multi.bind(null,2)
 
-let multiByFive = multi.bind(null,5)
+  // Check for Snow
+  if (snowIntensityMax > 0 || snowAccumulationMax > 0) {
+    if (temperatureMax < 0) {
+        return "Snowy";
+    } else {
+        return "Wet Snow Conditions";
+    }
+}
 
-console.log(multiByTwo(4))
+    // Check for Sunny
+    if (cloudCoverMax < 20 && precipitationProbabilityMax === 0) {
+      return "Sunny";
+  }
 
-console.log(multiByFive(8))
-
-
-
-
-
-
-
-
+      // Check for Cloudy
+      if (cloudCoverMax > 60) {
+        return "Cloudy";
+    }
 
 
-
-
-
+      // Check for Cloudy
+      if (cloudCoverMax > 60) {
+        return "Cloudy";
+    }
 
 
 
