@@ -454,7 +454,7 @@
 //         education: {
 //             tenthGrade: "A+", 
 //             plusTwo: "A", 
-//             degree: "Bachelor of computer application (8)" 
+//             degree: "Bachelor of computer application (8) " 
 //         },
 //         marks:[100,100,97,94]
 //     },
@@ -2929,55 +2929,162 @@ function NuclearLaunchCode(){
 
 // console.log(er)
 
-// :: TODO: Save your api somewhere safe, this is not the safe way
-const url = 'https://api.tomorrow.io/v4/weather/forecast?location=Bangalore&timesteps=1d&apikey=={APIKEY}';
 
+// "aaa1232@gmail.com"
+// passowd checker 
+
+
+// regx 
+
+// /pattern/modifier;
+
+// case Insensitive -> Upper case or lower case  A  a
+
+// let text = "Visit @W3Schools789";
+// let pattern = /[^abc]/ig;
+// let result = text.match(pattern);
+
+// console.log(result)
+
+// let text2 = "re, green, red, green, gren, gr, blue, yellow";
+// let pattern2 = /(red|green)/i;
+// let result2 = text2.match(pattern2);
+
+// console.log(result2)
+
+
+// // let req = new RegExp("(red|green)","i")
+// let pattern_exc = /(red|green)/      
+// console.log(pattern_exc.exec(text2))
+
+
+// let text3 = "Hello Hi HI hello Hi"
+// let pattern3 = /\bH/;
+// let result3 = text3.search(pattern3);
+
+
+// let text = "hello, LOOK AT YOU! "; 
+// let pattern = /LO\B/i;
+// let result = text.search(pattern);
+
+
+
+// let text = "10 or 100, 1000 or 100000?";
+// let pattern = /\d{3,}/g; 
+// let result = text.match(pattern);
+
+// let q1 = "10 or 100, 1000 or 100000";
+// let pattern = /0$/g; \\? 
+// // let result = pattern.test(q1)
+// let result = q1.match(q1)
+
+
+// let text = "Is this all there is";
+// let pattern = /is(?= all)/;
+// let result = text.match(pattern);
+
+// // n$
+// console.log("index of pattern matching is => ",result)
+
+// let text ="Lorem ipsum is typically a corrupted version of De finibus bonorum et malorum, a 1st-century BC text by the Roman statesman and philosopher Cicero, with words altered, added, and removed to make it nonsensical and improper Latin. The first two words themselves are a truncation of dolorem ipsu"
+
+// function findArray(){ // aeiou
+//   let pattern = /[aeiou](?= tru)/ig;
+// let result = text.match(pattern);
+// console.log(result)
+
+// } 
+// findArray(text)
+
+
+// "abb@gmail.com"
+// // "S@sdfklsfj123"  1 atleast decimal char, 1 atleast Capital in starting, atleast 1special character,   atleat 8 character should be the length.....
+
+
+
+// :: TODO: Save your api somewhere safe, this is not the safe way
+const url = 'https://api.tomorrow.io/v4/weather/forecast?location=Bangalore&timesteps=1d&apikey=H61vqaWSocSafnAPtlUNgudEorDPGenL';
 const options = {method: 'GET', headers: {accept: 'application/json'}};
 
-fetch(url, options)
+
+async function fetchData(){
+  let data = await fetch(url, options)
   .then(res => res.json())
-  .then(json => console.log(json))
+  .then(json => {
+    return json
+  })
   .catch(err => console.error(err));
 
+  const daily = data?.timelines?.daily;
+  const location = data?.location?.location;
 
-if (rainIntensityMax > 0 && precipitationProbabilityMax > 50) {
-    return "Rainy";
+  // console.log(daily)
+
+  console.log(daily instanceof Array)
+  daily.forEach(({time,values}) => {
+    function dd(values){
+      const {rainIntensityMax,precipitationProbabilityMax,snowIntensityMax,snowAccumulationMax,cloudCoverMax} = values
+    // console.log(values.rainIntensityMax)
+      console.log(time)
+      if (rainIntensityMax > 0 && precipitationProbabilityMax > 50) {
+          return "Rainy";
+      }
+        // Check for Snow
+        if (snowIntensityMax > 0 || snowAccumulationMax > 0) {
+          if (temperatureMax < 0) {
+              return "Snowy";
+          } else {
+              return "Wet Snow Conditions";
+          }
+      }
+          // Check for Sunny
+          if (cloudCoverMax < 20 && precipitationProbabilityMax === 0) {
+            return "Sunny";
+        }
+            // Check for Cloudy
+            if (cloudCoverMax > 60) {
+              return "Cloudy";
+          }
+
+
+            // Check for Cloudy
+            if (cloudCoverMax > 60) {
+              return "Cloudy";
+          }
+        }
+        console.log(dd(values))
+
+    }
+    );
 }
+fetchData()
 
-  // Check for Snow
-  if (snowIntensityMax > 0 || snowAccumulationMax > 0) {
-    if (temperatureMax < 0) {
-        return "Snowy";
-    } else {
-        return "Wet Snow Conditions";
-    }
-}
-
-    // Check for Sunny
-    if (cloudCoverMax < 20 && precipitationProbabilityMax === 0) {
-      return "Sunny";
-  }
-
-      // Check for Cloudy
-      if (cloudCoverMax > 60) {
-        return "Cloudy";
-    }
-
-
-      // Check for Cloudy
-      if (cloudCoverMax > 60) {
-        return "Cloudy";
-    }
+// console.log(fetchData())
+// if (rainIntensityMax > 0 && precipitationProbabilityMax > 50) {
+//     return "Rainy";
+// }
+//   // Check for Snow
+//   if (snowIntensityMax > 0 || snowAccumulationMax > 0) {
+//     if (temperatureMax < 0) {
+//         return "Snowy";
+//     } else {
+//         return "Wet Snow Conditions";
+//     }
+// }
+//     // Check for Sunny
+//     if (cloudCoverMax < 20 && precipitationProbabilityMax === 0) {
+//       return "Sunny";
+//   }
+//       // Check for Cloudy
+//       if (cloudCoverMax > 60) {
+//         return "Cloudy";
+//     }
 
 
-
-
-
-
-
-
-
-
+//       // Check for Cloudy
+//       if (cloudCoverMax > 60) {
+//         return "Cloudy";
+//     }
 
 
 
