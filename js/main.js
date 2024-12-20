@@ -2041,31 +2041,31 @@
 
 // console.log(gg)
 
-let view;
-function NuclearLaunchCode(){
-  let timer = 200;
-  if(view){
-    console.log("You already created an object")
-    return 
-  }
-  else {
-    view = "set"
-  }
-  let timePassed =0;
+// let view;
+// function NuclearLaunchCode(){
+//   let timer = 200;
+//   if(view){
+//     console.log("You already created an object")
+//     return 
+//   }
+//   else {
+//     view = "set"
+//   }
+//   let timePassed =0;
   
-  function launch(){
-    timePassed  = -1
-    console.log("BOOOM!!!!🔥")
-  }
-  setInterval(()=>timePassed--,1000)
+//   function launch(){
+//     timePassed  = -1
+//     console.log("BOOOM!!!!🔥")
+//   }
+//   setInterval(()=>timePassed--,1000)
 
-  function peaceTime(){
-    console.log(timePassed)
-  }
-  return {
-    peaceTime
-  }
-}
+//   function peaceTime(){
+//     console.log(timePassed)
+//   }
+//   return {
+//     peaceTime
+//   }
+// }
 
 // let nlc = NuclearLaunchCode();
 
@@ -2986,10 +2986,10 @@ function NuclearLaunchCode(){
 // // n$
 // console.log("index of pattern matching is => ",result)
 
-// let text ="Lorem ipsum is typically a corrupted version of De finibus bonorum et malorum, a 1st-century BC text by the Roman statesman and philosopher Cicero, with words altered, added, and removed to make it nonsensical and improper Latin. The first two words themselves are a truncation of dolorem ipsu"
+// let text ="Lorem ipsum is typically a corrupted version of De finibus bonorum et malorum, a 1st-century BC text by the Roman statesman and philosopher Cicero, with words altered, added, and removed to make $#$# 3424209 it nonsensical and improper Latin. The first two words themselves are a truncation of dolorem ipsu"
 
 // function findArray(){ // aeiou
-//   let pattern = /[aeiou](?= tru)/ig;
+//   let pattern = /(\d{3,5}|\w{3,5})/ig;
 // let result = text.match(pattern);
 // console.log(result)
 
@@ -3002,62 +3002,6 @@ function NuclearLaunchCode(){
 
 
 
-// :: TODO: Save your api somewhere safe, this is not the safe way
-const url = 'https://api.tomorrow.io/v4/weather/forecast?location=Bangalore&timesteps=1d&apikey=H61vqaWSocSafnAPtlUNgudEorDPGenL';
-const options = {method: 'GET', headers: {accept: 'application/json'}};
-
-
-async function fetchData(){
-  let data = await fetch(url, options)
-  .then(res => res.json())
-  .then(json => {
-    return json
-  })
-  .catch(err => console.error(err));
-
-  const daily = data?.timelines?.daily;
-  const location = data?.location?.location;
-
-  // console.log(daily)
-
-  console.log(daily instanceof Array)
-  daily.forEach(({time,values}) => {
-    function dd(values){
-      const {rainIntensityMax,precipitationProbabilityMax,snowIntensityMax,snowAccumulationMax,cloudCoverMax} = values
-    // console.log(values.rainIntensityMax)
-      console.log(time)
-      if (rainIntensityMax > 0 && precipitationProbabilityMax > 50) {
-          return "Rainy";
-      }
-        // Check for Snow
-        if (snowIntensityMax > 0 || snowAccumulationMax > 0) {
-          if (temperatureMax < 0) {
-              return "Snowy";
-          } else {
-              return "Wet Snow Conditions";
-          }
-      }
-          // Check for Sunny
-          if (cloudCoverMax < 20 && precipitationProbabilityMax === 0) {
-            return "Sunny";
-        }
-            // Check for Cloudy
-            if (cloudCoverMax > 60) {
-              return "Cloudy";
-          }
-
-
-            // Check for Cloudy
-            if (cloudCoverMax > 60) {
-              return "Cloudy";
-          }
-        }
-        console.log(dd(values))
-
-    }
-    );
-}
-fetchData()
 
 // console.log(fetchData())
 // if (rainIntensityMax > 0 && precipitationProbabilityMax > 50) {
@@ -3089,6 +3033,151 @@ fetchData()
 
 
 
+// :: TODO: Save your api somewhere safe, this is not the safe way
+
+
+//   async function fetchData(url,){
+//     let data = await fetch(url)
+//     .then(res => res.json())
+//     .then(json => {
+//       return json
+//     })
+//     .catch(err => console.error(err));
+
+//     const daily = data?.timelines?.daily;
+//     const location = data?.location?.location;
+
+//     // console.log(daily)
+
+//     console.log(daily instanceof Array)
+//     daily.forEach(({time,values}) => {
+//       function dd(values){
+//         const {rainIntensityMax,temperatureMax,precipitationProbabilityMax,snowIntensityMax,snowAccumulationMax,cloudCoverMax} = values
+//       // console.log(values.rainIntensityMax)
+//         console.log(time)
+//         // console.log(values)
+//         if (rainIntensityMax > 0 && precipitationProbabilityMax > 50) {
+//             return "Rainy";
+//         }
+//           // Check for Snow
+//           if (snowIntensityMax > 0 || snowAccumulationMax > 0) {
+//             if (temperatureMax < 0) {
+//                 return "Snowy";
+//             } else {
+//                 return "wet Snow Conditions";
+//             }
+//         }
+//             // Check for Sunny
+//             if (cloudCoverMax < 20 && precipitationProbabilityMax === 0) {
+//               return "Sunny";
+//           }
+//               // Check for Cloudy
+//               if (cloudCoverMax > 60) {
+//                 return "Cloudy";
+//             }
+
+
+//               // Check for Cloudy
+//               if (cloudCoverMax > 60) {
+//                 return "Cloudy";
+//               }
+//                // Default Condition
+//               return "Unknown Weather";
+//           }
+//           console.log(dd(values))
+
+//       }
+//       );
+//   } 
+//   let city = "New York"
+//   city.split("").forEach(i=> { 
+//     if(i == ""){
+//       i = "%20"
+//     }
+//   })
+//   const url = `https://api.tomorrow.io/v4/weather/forecast?location=${city}&timesteps=1d&apikey=H61vqaWSocSafnAPtlUNgudEorDPGenL`;
+//   // const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+// fetchData(url)
+
+// function validateEmail(email) {
+//   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+//   return emailRegex.test(email);
+//   text.match(emailRegex)
+// }
+
+// /^[A-Z](?=.*[0-9])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{7,}$/;
+
+
+// React -> React Native
+
+
+// Count the number of character in a string using regular expressions 
+
+// function Length(text){
+//   let pattern = /\d/ig 
+//   console.log(text.match(pattern).length)
+// }
+
+// Length("character@#@#2324")
+// [7] 10%8
+
+// anagram str1 str2
+
+let str1 = "si l en t " //-> "silent"
+let str2 = "Listen"
+
+// new Set()
+function findAnagram(s1,s2){
+  // write your code here. 
+  console.log(s1)
+  s1 = s1.replace(/\s/g,"")
+  console.log(s1)
+  return s1.toLowerCase().split('').sort().join("") === s2.toLowerCase().split('').sort().join("")
+  // returns true or false
+
+}
+console.log(findAnagram(str1,str2))
+
+// a[10]
+
+// Linked List 
+//  -/- -> -/- -> -/- -> 
+
+// ---------------------------------
+
+// try{
+// // Recursion
+
+// }
+// catch(err){
+
+// }
+
+// Carosoul 
+// every 5 sec. Images should change to new image 
+
+
+// factorial 
+
+
+// FaceBook 
+
+// Nav -> logo     HOME PROFILE POSTS  CREATE POST   
+
+
+// // Carosoul 
+// // every 5 sec. Images should change to new image 
+
+// POST 
+
+// 3-4 post 
+
+
+// Testimonials- images 2-3, short msg 
+
+
+// Footer -------
 
 
 
