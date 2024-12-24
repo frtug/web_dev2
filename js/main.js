@@ -3178,9 +3178,10 @@ console.log(findAnagram(str1,str2))
 
 
 // Footer -------
-
-
-
+// const password = "Abc123!@#"
+// const regex = /^([A-Za-z]*)(\d*)([!@#$%^&*()\-_=+{};:,<.>?]*)$/;
+// const match = password.match(regex);
+// console.log(match)
 
 
 
