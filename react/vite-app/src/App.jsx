@@ -3,6 +3,9 @@ import { Component } from 'react'
 import './App.css'
 import  { ArrayCardComponent } from './Card'
 import Robots from './assets/robots.json'
+import SearchedComponent from './SearchedComponent.jsx'
+
+
 
 
 class App extends Component{
@@ -12,23 +15,43 @@ class App extends Component{
       robots:Robots,
       searched:''
     }
+    console.log("constructor")
   }
-  handleChange = (e)=> {
+  componentDidMount(){
+    console.log("Mounting the component")
+    fetch('https://jsonplaceholder.typicode.com/users').then(
+      (res)=> res.json()).then(data=> {this.setState({robots : data} )}) 
+  }
+
+   handleChange = (e)=> {
     let search = e.target.value
-    console.log(e.target.value)
-    let filteredRobot = Robots.filter((item)=>{
-      return item.name.toLowerCase().includes(search.toLowerCase())
-    })
-    this.setState({ searched:search, robots:filteredRobot})
+    console.log("input value ",search)
+    this.setState({searched:search})
+    console.log("seached value from this state",this.state.searched) 
+
   }
+  handleClick = ()=>{
+    console.log(this.state.searched)
+  }
+
   render(){
+    console.log("render")
+    
+    let filteredRobot = this.state.robots.filter((item)=>{
+      return item.name.toLowerCase().includes(this.state.searched)
+    })
     return(
       <div>
         <div > 
-            <h1 className='font-roboto'>ROBOT GAME</h1>
-            <input type="text" placeholder='Search Robot' className='pa2' value={this.state.searched} onChange={this.handleChange}/>
+            <h1 className='font-roboto hr'>ROBOT GAME</h1>
+            <SearchedComponent searched={this.state.searched} handleChange={this.handleChange}/>
+
+            
         </div>
-        <ArrayCardComponent Robots={this.state.robots}/>
+        <button onClick={this.handleClick}>button </button>
+        {/* <Butt onWrapping>  */}
+          <ArrayCardComponent Robots={filteredRobot}/>
+        {/* </ButtonWrapping> */}
       </div>
       )
   }
