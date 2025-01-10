@@ -4,15 +4,14 @@ import './App.css'
 import  { ArrayCardComponent } from './Card'
 import Robots from './assets/robots.json'
 import SearchedComponent from './SearchedComponent.jsx'
-
-
-
+import WraperComponent from './Wrapper.jsx'
+import Header from './Header.jsx'
 
 class App extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      robots:Robots,
+      robots:[],
       searched:''
     }
     console.log("constructor")
@@ -21,6 +20,12 @@ class App extends Component{
     console.log("Mounting the component")
     fetch('https://jsonplaceholder.typicode.com/users').then(
       (res)=> res.json()).then(data=> {this.setState({robots : data} )}) 
+  }
+  componentDidUpdate(){
+    console.log("component is updated")
+  }
+  componentWillUnmount(){
+    console.log("component is unmounted")
   }
 
    handleChange = (e)=> {
@@ -36,24 +41,64 @@ class App extends Component{
 
   render(){
     console.log("render")
-    
     let filteredRobot = this.state.robots.filter((item)=>{
       return item.name.toLowerCase().includes(this.state.searched)
     })
+    
     return(
-      <div>
-        <div > 
-            <h1 className='font-roboto hr'>ROBOT GAME</h1>
+      <>
+        <div> 
+            {/* <h1 className='font-roboto hr'>ROBOT GAME <span> {this.props.msg}</span></h1> */}
+            <Header msg={this.props.msg}/>
             <SearchedComponent searched={this.state.searched} handleChange={this.handleChange}/>
-
-            
         </div>
         <button onClick={this.handleClick}>button </button>
-        {/* <Butt onWrapping>  */}
-          <ArrayCardComponent Robots={filteredRobot}/>
-        {/* </ButtonWrapping> */}
-      </div>
-      )
+        {
+          (filteredRobot.length) ?
+            <WraperComponent>
+              <ArrayCardComponent Robots={filteredRobot}/>
+            </WraperComponent>
+            :
+            <>
+              <div className='flex flex-wrap'>
+                <div className='card bg-silver'>
+                    <h3>------</h3>
+                    <p>------</p>
+                    <div>----------------</div>
+                </div>
+                <div className='card bg-silver'>
+                    <h3>------</h3>
+                    <p>------</p>
+                    <div>----------------</div>
+                </div>
+                <div className='card bg-silver'>
+                    <h3>------</h3>
+                    <p>------</p>
+                    <div>----------------</div>
+                </div>
+                <div className='card bg-silver'>
+                    <h3>------</h3>
+                    <p>------</p>
+                    <div>----------------</div>
+                </div>
+              </div>
+            </>
+
+        }
+
+        {/* {
+
+           (filteredRobot.length)  ?
+           <Wrapper> */}
+           {/* </Wrapper>
+                  :
+                <h1>loading....</h1> */}
+                     
+        {/* } */}
+      </>
+      
+  
+    )
   }
   
 }
