@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+/* *{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+} */
+ /* md:container */
+
+ /* Porfolio Webpage using react and tailwind */
+ /* ->  Home, Technogly Contact, Project, Services,  */
+
+
+ /* Weather APP  -> React along with.
+  Call three cities apis at the same time */
+
+
+/* Amazon webpage, jsonPlaceholder, fetch, Class based component, 
+function component, Routing, Forms, */
