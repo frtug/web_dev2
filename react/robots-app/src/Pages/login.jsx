@@ -1,5 +1,5 @@
 // import React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Login() {
     const [formData,setFormData] = useState({
@@ -10,7 +10,18 @@ export default function Login() {
         email:"",
         password:''
     })
-    // useRef()
+    useEffect(()=>{
+        // load data from the local Storage and session Storage
+        // You can interchnage the names of the session storage to localStorage
+        const savedData = JSON.parse(sessionStorage.getItem('formData'));
+        if(savedData){
+            console.log("saved Data loaded")
+            setFormData(savedData)
+        }
+    },[])
+    useEffect(()=>{
+        // send data to the local Storage
+    },[formData])
 
     function validateForm(){ // return true or false 
         let valid = true;
@@ -37,10 +48,13 @@ export default function Login() {
         const {name,value} = e.target // destructure of object
     
         setFormData((prev)=>({...prev,[name]:value})) // dynamic way of accessing the value
+        setErrors({email:"",password:""})
 
-        
 
+        // if(value.length === 1){
 
+        //     setErrors({email:"",password:""})
+        // }
         //      This method is also okay but not optimised
         // if(e.target.name === 'name'){
         //     console.log("name field")
@@ -54,6 +68,7 @@ export default function Login() {
         // setFormData((prev)=>({...prev,name:e.target.value}))
     }
     function handeSubmit(e){
+        sessionStorage.setItem('formData',JSON.stringify(formData))
         e.preventDefault();
         if(validateForm()){
             console.log(formData)
@@ -65,8 +80,12 @@ export default function Login() {
     // TODO:: Merge this two functions together to make one to handle both email and name field.
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4  bg-gray-100 sm:px-6 lg:px-8">
-        
-        <form className='mt-8 space-y-6 ' onSubmit={handeSubmit}>
+        <div className='max-w-md w-full space-y-8'>
+        <div>
+            <h1>Login Page</h1>
+
+        </div>
+        <form className='max-w-md mt-8 space-y-6 ' onSubmit={handeSubmit}>
             <div className='rounded-md shadow-sm space-y-4 '>
                 <div>
                     <label htmlFor="email" className='block text-sm font-large '>Email Address</label>
@@ -94,6 +113,8 @@ export default function Login() {
                 </div>
             </div>
         </form>
+        </div>
+
     </div>
   )
 }
