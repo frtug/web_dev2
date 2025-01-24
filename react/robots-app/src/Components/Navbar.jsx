@@ -1,6 +1,6 @@
 import  { useContext } from 'react'
 import { ThemeContext } from '../Contexts/theme.context'
-import { Link } from 'react-router'
+import { LinkHelper as Link} from '../utils/LinkHelper'
 import { House, Moon, ScanEye, Sun, UserPlus } from 'lucide-react'
 
 export default function Navbar() {
@@ -23,7 +23,18 @@ export default function Navbar() {
                 <House className='w-6 h-6 ml-1 mr-2' />
             </Link>
 
-            <Link className="flex " to="/login" >
+            
+
+            </div>
+            <div className="flex ">
+
+            <button onClick={handleClick} className={`${theme === "dark" 
+            ? 'text-gray-400' 
+            : 'text-yellow-800 '}
+            `}>
+                {theme=== "light" ? <Sun className="mr-2 w-6 h-6" /> :  <Moon className=" mr-2 w-6 h-6"/>}
+            </button>
+            <Link className="flex" to="/login" >
                 Login
                 <ScanEye className='w-6 h-6 ml-1 mr-2' />
              </Link>
@@ -31,15 +42,7 @@ export default function Navbar() {
                 signUp
                 <UserPlus className='w-6 h-6 ml-1 mr-2' />
              </Link>
-
-            </div>
-            <div>
-                <button onClick={handleClick}>
-                    {
-                        theme=== "light" ? <Sun className="w-6 h-6" /> :  <Moon className="w-6 h-6"/>
-                    }
-
-                </button>
+                
             </div>
         </div>
           {/* <ul>
