@@ -1,6 +1,8 @@
-import { useRef } from "react"
+import { useContext, useRef } from "react"
+import { ThemeContext } from "../Contexts/theme.context";
 
 export default function Signup() {
+    // uncontrolled form 
     const email = useRef(); // doens't trigger re-render when any chnage on the field
     const password = useRef();
     const confirmPassword = useRef();
@@ -13,8 +15,10 @@ export default function Signup() {
         // validation function function
         console.log("submitted")
     }
+        const {theme} = useContext(ThemeContext) 
+    
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4  bg-gray-100 sm:px-6 lg:px-8">
+    <div className={`min-h-screen flex items-center justify-center py-12 px-4  ${theme==="light" ? "bg-gray-300 text-black" : "bg-gray-900 text-white"} sm:px-6 lg:px-8`}>
     <div className='max-w-md w-full space-y-8'>
         <div>
             <h1>Signup Page</h1>

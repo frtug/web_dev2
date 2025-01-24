@@ -1,10 +1,11 @@
 
 // import './App.css'
 
-import { Link, Route, Routes } from 'react-router'
+import {  Route, Routes } from 'react-router'
 import Login from './Pages/login'
 import Signup from './Pages/signup'
-
+import { ThemeProvider} from './Contexts/theme.context'
+import Navbar from './Components/Navbar'
 
 function Dashboard(){
 return (
@@ -13,26 +14,16 @@ return (
   </div>
 )
 }
-  
-
 
 function App() {
 
   return (
-    <>
+    <ThemeProvider>
+      
     <div className="mx-auto md:container ">
         {/* <h1 className='text-center text-2xl'  >Login Form</h1> */}
         {/* <Login/> */}
-        <div>
-          <ul>
-            <li>
-              <Link to="/login" >Login Form </Link>
-            </li>
-            <li>
-              <Link to="/signup">SignUp</Link>
-            </li>
-          </ul>
-        </div>
+        <Navbar />
       <Routes>
       <Route path="/" element={<Dashboard/>} />
 
@@ -42,7 +33,7 @@ function App() {
       </Routes>
 
     </div>
-    </>
+    </ThemeProvider>
   )
 }
 

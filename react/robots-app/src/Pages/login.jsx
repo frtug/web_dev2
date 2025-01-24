@@ -1,5 +1,7 @@
 // import React from 'react'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
+import { ThemeContext } from '../Contexts/theme.context'
 
 export default function Login() {
     const [formData,setFormData] = useState({
@@ -11,17 +13,21 @@ export default function Login() {
         password:''
     })
     useEffect(()=>{
-        // load data from the local Storage and session Storage
-        // You can interchnage the names of the session storage to localStorage
-        const savedData = JSON.parse(sessionStorage.getItem('formData'));
-        if(savedData){
-            console.log("saved Data loaded")
-            setFormData(savedData)
-        }
+        //  getting he cookie
+        const data = Cookies.get('formData');
+        console.log(data)
+
     },[])
-    useEffect(()=>{
-        // send data to the local Storage
-    },[formData])
+    // useEffect(()=>{
+    //     // load data from the local Storage and session Storage
+    //     // You can interchnage the names of the session storage to localStorage
+    //     const savedData = JSON.parse(sessionStorage.getItem('formData'));
+    //     if(savedData){
+    //         console.log("saved Data loaded")
+    //         setFormData(savedData)
+    //     }
+    // },[])
+    
 
     function validateForm(){ // return true or false 
         let valid = true;
@@ -51,6 +57,8 @@ export default function Login() {
         setErrors({email:"",password:""})
 
 
+        Cookies.remove("formData")
+
         // if(value.length === 1){
 
         //     setErrors({email:"",password:""})
@@ -68,7 +76,9 @@ export default function Login() {
         // setFormData((prev)=>({...prev,name:e.target.value}))
     }
     function handeSubmit(e){
-        sessionStorage.setItem('formData',JSON.stringify(formData))
+        // sessionStorage.setItem('formData',JSON.stringify(formData))
+        Cookies.set('formData',"user Logged in",{expires:7})
+
         e.preventDefault();
         if(validateForm()){
             console.log(formData)
@@ -76,10 +86,10 @@ export default function Login() {
         }
     }
     
-
+    const {theme} = useContext(ThemeContext) 
     // TODO:: Merge this two functions together to make one to handle both email and name field.
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4  bg-gray-100 sm:px-6 lg:px-8">
+    <div className={`min-h-screen flex items-center justify-center py-12 px-4  ${theme==="light" ? "bg-gray-300 text-black" : "bg-gray-900 text-white"} sm:px-6 lg:px-8`}>
         <div className='max-w-md w-full space-y-8'>
         <div>
             <h1>Login Page</h1>
