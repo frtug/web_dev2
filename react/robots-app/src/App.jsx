@@ -20,7 +20,7 @@ function App() {
   return (
     <ThemeProvider>
       
-    <div className="mx-auto md:container ">
+    <div className="dark:text-blue-800 mx-auto md:container ">
         {/* <h1 className='text-center text-2xl'  >Login Form</h1> */}
         {/* <Login/> */}
         <Navbar />

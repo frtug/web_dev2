@@ -89,10 +89,10 @@ export default function Login() {
     const {theme} = useContext(ThemeContext) 
     // TODO:: Merge this two functions together to make one to handle both email and name field.
   return (
-    <div className={`min-h-screen flex items-center justify-center py-12 px-4  ${theme==="light" ? "bg-gray-300 text-black" : "bg-gray-900 text-white"} sm:px-6 lg:px-8`}>
+    <div className={`h-[calc(100vh-63.4px)] flex items-center justify-center py-12 px-4  ${theme==="light" ? "bg-gray-300 text-black" : "bg-gray-900 text-white"} sm:px-6 lg:px-8`}>
         <div className='max-w-md w-full space-y-8'>
-        <div>
-            <h1>Login Page</h1>
+        <div className='text-center text-2xl'>
+            <h1 className='font-semibold'>Login Page</h1>
 
         </div>
         <form className='max-w-md mt-8 space-y-6 ' onSubmit={handeSubmit}>
