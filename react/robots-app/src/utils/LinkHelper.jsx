@@ -6,6 +6,5 @@ export function LinkHelper({children,to,className}) {
     <Link to={to} className={`border-b-4 border-indigo-500 mr-1 ${className}`}>
         {children}
     </Link>
-
   )
 }
