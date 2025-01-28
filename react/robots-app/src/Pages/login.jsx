@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { ThemeContext } from '../Contexts/theme.context'
 import { useLocation, useNavigate, useResolvedPath } from 'react-router'
+import {signInWithGooglePopup} from '../utils/firebase.utils'
 
 export default function Login() {
     const [formData,setFormData] = useState({
@@ -101,6 +102,12 @@ export default function Login() {
         
         
     }
+
+    const googleSignIn  = async ()=>{
+        const res = await signInWithGooglePopup();
+        console.log(res)
+    }
+
     
     const {theme} = useContext(ThemeContext) 
     // TODO:: Merge this two functions together to make one to handle both email and name field.
@@ -135,6 +142,9 @@ export default function Login() {
                 <div>
                     <button type='submit' className='w-full border text-large rounded text-white bg-blue-500 hover:bg-blue-700'>
                         Login 
+                    </button>
+                    <button onClick={googleSignIn} className='w-full border text-large rounded text-white bg-amber-500 hover:bg-amber-700'>
+                        Login with google
                     </button>
                 </div>
             </div>
