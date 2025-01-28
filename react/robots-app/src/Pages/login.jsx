@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { ThemeContext } from '../Contexts/theme.context'
+import { useLocation, useNavigate, useResolvedPath } from 'react-router'
 
 export default function Login() {
     const [formData,setFormData] = useState({
@@ -27,6 +28,13 @@ export default function Login() {
     //         setFormData(savedData)
     //     }
     // },[])
+
+    let navigate = useNavigate(); // helping us out moving from one pathname to different pathname 
+    // automaticlly without users intervention. 
+    let location = useLocation(); // location as a pathname 
+
+
+    
     
 
     function validateForm(){ // return true or false 
@@ -75,6 +83,11 @@ export default function Login() {
         // }
         // setFormData((prev)=>({...prev,name:e.target.value}))
     }
+    function onSuccessfull(){
+        if(location.pathname === "/login")
+          navigate("/");
+  
+      }
     function handeSubmit(e){
         // sessionStorage.setItem('formData',JSON.stringify(formData))
         Cookies.set('formData',"user Logged in",{expires:7})
@@ -82,8 +95,11 @@ export default function Login() {
         e.preventDefault();
         if(validateForm()){
             console.log(formData)
+            onSuccessfull()
             // call a api for sending the data for our backend 
         }
+        
+        
     }
     
     const {theme} = useContext(ThemeContext) 
