@@ -2,7 +2,10 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import Cookies from 'js-cookie'
 import { ThemeContext } from '../Contexts/theme.context'
-import {signInWithGoogle} from '../utils/firebase.utils'
+import {signInWithGoogle, signInWithGoogleRedirect} from '../Contexts/user.context'
+import { createUserDocumentFromAuth } from '../utils/firebase.utils'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import fire from '../utils/firebase.utils'
 // useEffect(()=>{
 
 //     // operations
@@ -95,19 +98,32 @@ export default function Login() {
         // }
         // setFormData((prev)=>({...prev,name:e.target.value}))
     }
-    function handeSubmit(e){
+    async function handeSubmit(e){
         // sessionStorage.setItem('formData',JSON.stringify(formData))
         Cookies.set('formData',"user Logged in",{expires:7})
 
         e.preventDefault();
         if(validateForm()){
             console.log(formData)
+            const {email,password} = formData;
+            const user = await signInWithEmailAndPassword(fire.auth,email,password)
+            
+            console.log("Successfully Logged in",user)
             // call a api for sending the data for our backend 
         }
     }
+    // merge this two function.
     async function googleSignIn(){
         const res = await signInWithGoogle();
         console.log(res)
+        const userDocRef = createUserDocumentFromAuth(res.user) // creating a firestore document
+    }
+    async function googleRedirect(){
+        const res = await signInWithGoogleRedirect();
+        console.log(res)
+
+        // TODO:: getRedirectResult and make sure you added in use Effect() when mouning or updating happens on the component 
+        // it will get triggered and give back you the data of the redirected result data.
     }
     
     const {theme} = useContext(ThemeContext) 
@@ -146,6 +162,9 @@ export default function Login() {
                     </button>
                     <button type='button' onClick={googleSignIn} className='w-full border text-large rounded text-white bg-amber-500 hover:bg-amber-700'>
                         SignIn with Google 
+                    </button>
+                    <button type='button' onClick={googleRedirect} className='w-full border text-large rounded text-white bg-amber-500 hover:bg-amber-700'>
+                        SignIn with Google Redirect
                     </button>
                     
                 </div>

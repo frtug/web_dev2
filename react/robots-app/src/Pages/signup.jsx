@@ -1,12 +1,22 @@
+// Libray which upload this on npm message display 
+
 import { useContext, useRef } from "react"
 import { ThemeContext } from "../Contexts/theme.context";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import fire from '../utils/firebase.utils' 
+
+import { useNavigate } from "react-router";
+
 
 export default function Signup() {
     // uncontrolled form 
     const email = useRef(); // doens't trigger re-render when any chnage on the field
     const password = useRef();
     const confirmPassword = useRef();
-    function handeSubmit(e){
+    const navigate = useNavigate();
+
+
+    async function handeSubmit(e){
         e.preventDefault()
         console.log(email.current)
         console.log(password.current)
@@ -14,6 +24,20 @@ export default function Signup() {
         // validation for pasword and confirm password. YOu can do here
         // validation function function
         console.log("submitted")
+
+        if(password.current.value !== confirmPassword.current.value){
+            return;
+        }
+        try{
+            const user = await createUserWithEmailAndPassword(fire.auth,email.current.value,password.current.value)
+            console.log("user Created")
+            console.log(user)
+            navigate('/')
+
+        }catch(error){
+            console.log("Error ",error)
+        }
+        
     }
         const {theme} = useContext(ThemeContext) 
     
