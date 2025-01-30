@@ -1,30 +1,76 @@
-import  { createContext, useState } from 'react'
+import  { createContext, useContext, useState } from 'react'
 
 // react patterns 
 
 // lego block 
 // import {auth} from '../utils/firebase.utils'
-import f from '../utils/firebase.utils'
+import firebase from '../utils/firebase.utils'
+import {doc, getDoc, setDoc} from 'firebase/firestore'
 
-import { signInWithPopup, signInWithRedirect} from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect} from 'firebase/auth'
 
 
 
 
 export const UserContext = createContext({
-    user:null,
-    setUser:()=>null 
+    isLoggedIn :null,
+    setIsLoggedIn :() => null,
+    signInWithGoogle:() => null,
+    signInWithGoogleRedirect:() => null,
+    createUserDocumentFromAuth:() => null
 });
-export const signInWithGoogle = ()=> signInWithPopup(f.auth,f.provider)
-export const signInWithGoogleRedirect = ()=> signInWithRedirect(f.auth,f.provider)
+
+// const {} = useContext(UserContext)
 
 
 export const UserProvider = ({children}) =>{
 
-    const [user,setUser] = useState(false);
+    const [isLoggedIn,setIsLoggedIn] = useState(false);
+
+    const signInWithGoogle = async()=> await signInWithPopup(firebase.auth,firebase.googleProvider)
+    const signInWithGoogleRedirect = async()=> await signInWithRedirect(firebase.auth,firebase.provider)
+    const signIn = async(email,password)=> await signInWithEmailAndPassword(firebase.auth,email,password) // this is the function for the email and password
+
+    const CreateUser = async(email,password)=> await createUserWithEmailAndPassword(firebase.auth,email,password)
+
+    const createUserDocumentFromAuth = async(userAuth)=>{
+        const userDocRef = doc(firebase.db,'users',userAuth.uid)
+        console.log(userDocRef)
+    
+        const userSnapshot = await getDoc(userDocRef)
+        // console.log(userSnapshot)
+        // console.log(userSnapshot.exists());
+        if(userSnapshot.exists()){
+            console.log("user exists already")
+        }
+        if(!userSnapshot.exists()){
+            const {displayName,email} = userAuth;
+            const createdAt = new Date();
+        try{
+            await setDoc(userDocRef,{
+                displayName,
+                email,
+                createdAt
+            })
+        }catch(error){
+            console.log("message Some error is there",error.message)
+        }
+        }
+        return userDocRef;
+    } 
+
+    const value ={
+        isLoggedIn,
+        setIsLoggedIn,
+        signIn,
+        CreateUser,
+        signInWithGoogle,
+        signInWithGoogleRedirect,
+        createUserDocumentFromAuth
+    }
 
     return(
-    <UserContext.Provider value={{user,setUser}}>
+    <UserContext.Provider value={value}>
     {children}
     </UserContext.Provider>
 )

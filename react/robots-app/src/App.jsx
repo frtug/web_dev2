@@ -6,18 +6,16 @@ import Login from './Pages/login'
 import Signup from './Pages/signup'
 import { ThemeProvider} from './Contexts/theme.context'
 import Navbar from './Components/Navbar'
+import { UserProvider } from './Contexts/user.context'
+import Dashboard from './Pages/dashboard'
+import ProtectedRoute from './Components/ProtectedRoute'
 
-function Dashboard(){
-return (
-  <div>
-    <h1>Dashboard screen</h1>
-  </div>
-)
-}
+
 
 function App() {
 
   return (
+    <UserProvider>
     <ThemeProvider>
       
     <div className="dark:text-blue-800  ">
@@ -26,14 +24,15 @@ function App() {
         <Navbar />
       <Routes>
       <Route path="/" element={<Dashboard/>} />
-
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>} />
 
       </Routes>
 
     </div>
     </ThemeProvider>
+    </UserProvider>
+
   )
 }
 

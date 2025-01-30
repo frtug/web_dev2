@@ -2,10 +2,10 @@
 
 import { useContext, useRef } from "react"
 import { ThemeContext } from "../Contexts/theme.context";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import fire from '../utils/firebase.utils' 
 
 import { useNavigate } from "react-router";
+import { UserContext } from "../Contexts/user.context";
 
 
 export default function Signup() {
@@ -14,7 +14,8 @@ export default function Signup() {
     const password = useRef();
     const confirmPassword = useRef();
     const navigate = useNavigate();
-
+    const {theme} = useContext(ThemeContext) 
+    const {createUser} = useContext(UserContext)
 
     async function handeSubmit(e){
         e.preventDefault()
@@ -29,7 +30,7 @@ export default function Signup() {
             return;
         }
         try{
-            const user = await createUserWithEmailAndPassword(fire.auth,email.current.value,password.current.value)
+            const user = createUser(fire.auth,email.current.value,password.current.value)
             console.log("user Created")
             console.log(user)
             navigate('/')
@@ -39,7 +40,6 @@ export default function Signup() {
         }
         
     }
-        const {theme} = useContext(ThemeContext) 
     
   return (
     <div className={`min-h-screen flex items-center justify-center py-12 px-4  ${theme==="light" ? "bg-gray-300 text-black" : "bg-gray-900 text-white"} sm:px-6 lg:px-8`}>

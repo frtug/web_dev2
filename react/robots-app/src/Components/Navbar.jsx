@@ -2,10 +2,11 @@ import  { useContext } from 'react'
 import { ThemeContext } from '../Contexts/theme.context'
 import { LinkHelper as Link} from '../utils/LinkHelper'
 import { House, Moon, ScanEye, Sun, UserPlus } from 'lucide-react'
+import { UserContext } from '../Contexts/user.context'
 
 export default function Navbar() {
     const {theme,setTheme} = useContext(ThemeContext)
-    
+    const {isLoggedIn} = useContext(UserContext)
         function handleClick(){
             setTheme((prev)=>{
                return ((prev === "light") ? "dark" : "light")
@@ -22,9 +23,6 @@ export default function Navbar() {
                 Home 
                 <House className='w-6 h-6 ml-1 mr-2' />
             </Link>
-
-            
-
             </div>
             <div className="flex ">
 
@@ -34,15 +32,25 @@ export default function Navbar() {
             `}>
                 {theme=== "light" ? <Sun className="mr-2 w-6 h-6" /> :  <Moon className=" mr-2 w-6 h-6"/>}
             </button>
-            <Link className="flex" to="/login" >
-                Login
-                <ScanEye className='w-6 h-6 ml-1 mr-2' />
-             </Link>
-             <Link className="flex" to="/signup" >
-                signUp
-                <UserPlus className='w-6 h-6 ml-1 mr-2' />
-             </Link>
-                
+            {/* condition is what will be the logic to show and hide both login and signUP */}
+            {
+              isLoggedIn ?  (<button className={`${theme === "dark" 
+                ? 'text-gray-400' 
+                : 'text-yellow-800 '}
+                `}>
+                  Logout
+                </button>):
+                <>
+                  <Link className="flex" to="/login" >
+                    Login
+                    <ScanEye className='w-6 h-6 ml-1 mr-2' />
+                  </Link>
+                  <Link className="flex" to="/signup" >
+                      signUp
+                      <UserPlus className='w-6 h-6 ml-1 mr-2' />
+                  </Link>
+                 </>
+            }                
             </div>
         </div>
           {/* <ul>

@@ -2,10 +2,10 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import {doc, getDoc, getFirestore, setDoc} from 'firebase/firestore'
+import { getFirestore} from 'firebase/firestore'
 // Your web app's Firebase configuration
 
-import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider} from 'firebase/auth'
+import { FacebookAuthProvider, getAuth, GoogleAuthProvider} from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_REACT_APP_APIKEY,
@@ -19,45 +19,16 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+googleProvider.setCustomParameters({
     prompt:"select_account"
 });
-export const db = getFirestore();
-
-
-
-
-export const createUserDocumentFromAuth = async(userAuth)=>{
-    const userDocRef = doc(db,'users',userAuth.uid)
-    console.log(userDocRef)
-
-    const userSnapshot = await getDoc(userDocRef)
-    // console.log(userSnapshot)
-    // console.log(userSnapshot.exists());
-    if(userSnapshot.exists()){
-        console.log("user exists already")
-    }
-    if(!userSnapshot.exists()){
-        const {displayName,email} = userAuth;
-        const createdAt = new Date();
-    try{
-        await setDoc(userDocRef,{
-            displayName,
-            email,
-            createdAt
-        })
-    }catch(error){
-        console.log("message Some error is there",error.message)
-    }
-    }
-    return userDocRef;
-} 
-
+const db = getFirestore();
 
 const auth = getAuth(app);
 
-export default {auth,provider}
+export default {db,auth,googleProvider}
 
 // createUserWithEmailAndPassword // signUp 
 // signInWithEmailAndPassword  // signIn 

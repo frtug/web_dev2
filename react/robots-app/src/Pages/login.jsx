@@ -1,11 +1,8 @@
 // import React from 'react'
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { ThemeContext } from '../Contexts/theme.context'
-import {signInWithGoogle, signInWithGoogleRedirect} from '../Contexts/user.context'
-import { createUserDocumentFromAuth } from '../utils/firebase.utils'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import fire from '../utils/firebase.utils'
+import { UserContext } from '../Contexts/user.context'
 // useEffect(()=>{
 
 //     // operations
@@ -26,6 +23,11 @@ import fire from '../utils/firebase.utils'
 
 // const authContext = useContext()
 
+// Component
+    // State, 
+    // hooks,
+    // Functions you are going to write in that component
+
 
 export default function Login() {
     const [formData,setFormData] = useState({
@@ -36,6 +38,8 @@ export default function Login() {
         email:"",
         password:''
     })
+    const {setIsLoggedIn,signIn,signInWithGoogle,signInWithGoogleRedirect,createUserDocumentFromAuth} = useContext(UserContext)
+
     useEffect(()=>{
         //  getting he cookie
         const data = Cookies.get('formData');
@@ -78,8 +82,6 @@ export default function Login() {
     
         setFormData((prev)=>({...prev,[name]:value})) // dynamic way of accessing the value
         setErrors({email:"",password:""})
-
-
         Cookies.remove("formData")
 
         // if(value.length === 1){
@@ -99,6 +101,7 @@ export default function Login() {
         // setFormData((prev)=>({...prev,name:e.target.value}))
     }
     async function handeSubmit(e){
+        // login happens with email password
         // sessionStorage.setItem('formData',JSON.stringify(formData))
         Cookies.set('formData',"user Logged in",{expires:7})
 
@@ -106,22 +109,24 @@ export default function Login() {
         if(validateForm()){
             console.log(formData)
             const {email,password} = formData;
-            const user = await signInWithEmailAndPassword(fire.auth,email,password)
-            
+            const {user} = await signIn(email,password)  
+            if(user) setIsLoggedIn(true)
             console.log("Successfully Logged in",user)
             // call a api for sending the data for our backend 
         }
     }
     // merge this two function.
     async function googleSignIn(){
-        const res = await signInWithGoogle();
+        const res = await signInWithGoogle(); 
         console.log(res)
-        const userDocRef = createUserDocumentFromAuth(res.user) // creating a firestore document
+        if(res.user) setIsLoggedIn(true)
+        console.log(res)
+        const userDocRef = createUserDocumentFromAuth(res.user) // creating a firestore document  
+        console.log(userDocRef)
     }
     async function googleRedirect(){
-        const res = await signInWithGoogleRedirect();
-        console.log(res)
-
+        const {user} = signInWithGoogleRedirect();  
+        if(user) setIsLoggedIn(true)
         // TODO:: getRedirectResult and make sure you added in use Effect() when mouning or updating happens on the component 
         // it will get triggered and give back you the data of the redirected result data.
     }
