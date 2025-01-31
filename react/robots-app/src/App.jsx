@@ -8,9 +8,15 @@ import { ThemeProvider} from './Contexts/theme.context'
 import Navbar from './Components/Navbar'
 import { UserProvider } from './Contexts/user.context'
 import Dashboard from './Pages/dashboard'
-import ProtectedRoute from './Components/ProtectedRoute'
+import Protected from './Components/Protected'
 
-
+function Contact(){
+  return(
+    <div>
+      Contact page 
+      </div>
+  )
+}
 
 function App() {
 
@@ -24,6 +30,8 @@ function App() {
         <Navbar />
       <Routes>
       <Route path="/" element={<Dashboard/>} />
+      <Route path="/contact" element={<Protected><Contact/></Protected>} />
+
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
 

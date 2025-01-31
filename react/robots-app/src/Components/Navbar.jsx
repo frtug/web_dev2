@@ -1,17 +1,26 @@
 import  { useContext } from 'react'
 import { ThemeContext } from '../Contexts/theme.context'
 import { LinkHelper as Link} from '../utils/LinkHelper'
-import { House, Moon, ScanEye, Sun, UserPlus } from 'lucide-react'
+import { Contact, House, Moon, ScanEye, Sun, UserPlus } from 'lucide-react'
 import { UserContext } from '../Contexts/user.context'
 
 export default function Navbar() {
     const {theme,setTheme} = useContext(ThemeContext)
-    const {isLoggedIn} = useContext(UserContext)
-        function handleClick(){
-            setTheme((prev)=>{
-               return ((prev === "light") ? "dark" : "light")
-            })
-        }
+    const {isLoggedIn,signSeverOut,setIsLoggedIn} = useContext(UserContext)
+    
+    function handleClick(){
+        setTheme((prev)=>{
+            return ((prev === "light") ? "dark" : "light")
+        })
+    }
+     async function handleLogout(){
+      console.log("logout happens ")
+      // logout ?? 
+      // server logout
+      const res = await signSeverOut()
+      setIsLoggedIn(false)
+      console.log(res)
+    }
   return (
     <nav className={`${theme === "light" ? "bg-gray-300 text-black" :"bg-gray-800 text-white"} p-4 `} >
         <div className="container mx-auto flex justify-between items-center">
@@ -22,6 +31,10 @@ export default function Navbar() {
             <Link className="flex" to="/" >
                 Home 
                 <House className='w-6 h-6 ml-1 mr-2' />
+            </Link>
+            <Link className="flex" to="/contact" >
+                Contact 
+                <Contact className='w-6 h-6 ml-1 mr-2' />
             </Link>
             </div>
             <div className="flex ">
@@ -34,7 +47,7 @@ export default function Navbar() {
             </button>
             {/* condition is what will be the logic to show and hide both login and signUP */}
             {
-              isLoggedIn ?  (<button className={`${theme === "dark" 
+              isLoggedIn ?  (<button onClick={handleLogout} className={`${theme === "dark" 
                 ? 'text-gray-400' 
                 : 'text-yellow-800 '}
                 `}>

@@ -7,7 +7,7 @@ import  { createContext, useContext, useState } from 'react'
 import firebase from '../utils/firebase.utils'
 import {doc, getDoc, setDoc} from 'firebase/firestore'
 
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect} from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, signOut} from 'firebase/auth'
 
 
 
@@ -17,7 +17,8 @@ export const UserContext = createContext({
     setIsLoggedIn :() => null,
     signInWithGoogle:() => null,
     signInWithGoogleRedirect:() => null,
-    createUserDocumentFromAuth:() => null
+    createUserDocumentFromAuth:() => null,
+    signSeverOut:() =>null
 });
 
 // const {} = useContext(UserContext)
@@ -32,7 +33,8 @@ export const UserProvider = ({children}) =>{
     const signIn = async(email,password)=> await signInWithEmailAndPassword(firebase.auth,email,password) // this is the function for the email and password
 
     const CreateUser = async(email,password)=> await createUserWithEmailAndPassword(firebase.auth,email,password)
-
+    const signSeverOut = async() => await signOut(firebase.auth)
+    
     const createUserDocumentFromAuth = async(userAuth)=>{
         const userDocRef = doc(firebase.db,'users',userAuth.uid)
         console.log(userDocRef)
@@ -66,7 +68,8 @@ export const UserProvider = ({children}) =>{
         CreateUser,
         signInWithGoogle,
         signInWithGoogleRedirect,
-        createUserDocumentFromAuth
+        createUserDocumentFromAuth,
+        signSeverOut
     }
 
     return(

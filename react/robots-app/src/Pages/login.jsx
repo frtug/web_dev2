@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { ThemeContext } from '../Contexts/theme.context'
 import { UserContext } from '../Contexts/user.context'
+import { useNavigate } from 'react-router'
 // useEffect(()=>{
 
 //     // operations
@@ -39,7 +40,7 @@ export default function Login() {
         password:''
     })
     const {setIsLoggedIn,signIn,signInWithGoogle,signInWithGoogleRedirect,createUserDocumentFromAuth} = useContext(UserContext)
-
+    const navigate = useNavigate();
     useEffect(()=>{
         //  getting he cookie
         const data = Cookies.get('formData');
@@ -123,6 +124,7 @@ export default function Login() {
         console.log(res)
         const userDocRef = createUserDocumentFromAuth(res.user) // creating a firestore document  
         console.log(userDocRef)
+        navigate('/')
     }
     async function googleRedirect(){
         const {user} = signInWithGoogleRedirect();  
