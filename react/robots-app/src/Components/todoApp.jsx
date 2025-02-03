@@ -1,9 +1,11 @@
-import  { useState, useMemo, useCallback, memo } from 'react';
+import  { useCallback, useState,memo, useMemo} from 'react';
 import { Trash2, Plus, CheckCircle, Circle } from 'lucide-react';
 
-// TodoItem component (memoized to prevent unnecessary re-renders)
-const TodoItem = memo(({ todo, onToggle, onDelete }) => {
-  console.log(`Rendering TodoItem: ${todo.text}`); // For demonstration
+
+
+
+const TodoItem = ({ todo, onToggle, onDelete }) => {
+  console.log(`Rendering TodoItem: ${todo.text}`); // For demo
 
   return (
     <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow mb-2 hover:shadow-md transition-shadow">
@@ -30,24 +32,23 @@ const TodoItem = memo(({ todo, onToggle, onDelete }) => {
       </button>
     </div>
   );
-});
+};
 
 // TodoStats component
 const TodoStats = memo(({ todos }) => {
-  console.log('Rendering TodoStats'); // For demonstration
+  console.log('Rendering TodoStats'); // For demo
 
-  // Using useMemo to calculate statistics only when todos change
-  const stats = useMemo(() => {
-    console.log('Calculating stats...'); // For demonstration
+  const stats =  useMemo(()=>{
     return {
       total: todos.length,
       completed: todos.filter(todo => todo.completed).length,
       incomplete: todos.filter(todo => !todo.completed).length
     };
-  }, [todos]);
+  },[todos]);
 
   return (
-    <div className="grid grid-cols-3 gap-4 mb-6">
+    // Object.entries()
+    <div className="grid grid-cols-3 gap-4 mb-6"> 
       {Object.entries(stats).map(([key, value]) => (
         <div key={key} className="bg-white p-4 rounded-lg shadow text-center">
           <div className="text-2xl font-bold text-gray-700">{value}</div>
@@ -60,12 +61,11 @@ const TodoStats = memo(({ todos }) => {
 
 // Main App Component
 const App = () => {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState('');
-  const [filter, setFilter] = useState('all');
+  const [todos, setTodos] = useState([]); // array of object 
+  const [newTodo, setNewTodo] = useState(''); // storing the current value that is added in todo 
+  const [filter, setFilter] = useState('all'); // all, active,completed
 
-  // Memoized filtered todos
-  const filteredTodos = useMemo(() => {
+  const filteredTodos = () => {
     console.log('Filtering todos...'); // For demonstration
     switch (filter) {
       case 'active':
@@ -75,25 +75,25 @@ const App = () => {
       default:
         return todos;
     }
-  }, [todos, filter]);
+  };
 
-  // Memoized handlers using useCallback
-  const handleToggle = useCallback((id) => {
-    console.log('Toggle handler called'); // For demonstration
+  const handleToggle = (id) => {
+    console.log('Toggle handler called'); // For demo
     setTodos(prevTodos =>
       prevTodos.map(todo =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-  }, []);
+  };
 
-  const handleDelete = useCallback((id) => {
-    console.log('Delete handler called'); // For demonstration
+  const handleDelete = (id) => {
+    console.log('Delete handler called'); // For demo
     setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
-  }, []);
+  };
 
+  // useMemo, useCallback,memo 
   const handleAddTodo = useCallback(() => {
-    if (!newTodo.trim()) return;
+    if (!newTodo.trim()) return; // if todo is empty
     setTodos(prevTodos => [
       ...prevTodos,
       {
@@ -103,20 +103,20 @@ const App = () => {
       }
     ]);
     setNewTodo('');
-  }, [newTodo]);
+  },[newTodo]);
 
   return (
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-2xl mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">Optimized Todo App</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-8"> Todo App</h1>
 
         {/* Input form */}
         <div className="flex gap-2 mb-6">
           <input
             type="text"
             value={newTodo}
-            onChange={(e) => setNewTodo(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
+            onChange={(e) => setNewTodo(e.target.value)} // this is an value
+            onKeyUp={(e) => e.key === 'Enter' && handleAddTodo()}
             placeholder="Add a new todo..."
             className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -150,7 +150,7 @@ const App = () => {
 
         {/* Todo list */}
         <div className="space-y-2">
-          {filteredTodos.map(todo => (
+          {filteredTodos().map(todo => (
             <TodoItem
               key={todo.id}
               todo={todo}
