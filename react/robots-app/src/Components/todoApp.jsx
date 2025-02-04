@@ -4,7 +4,7 @@ import { Trash2, Plus, CheckCircle, Circle } from 'lucide-react';
 
 
 
-const TodoItem = ({ todo, onToggle, onDelete }) => {
+const TodoItem = memo(({ todo, onToggle, onDelete }) => {
   console.log(`Rendering TodoItem: ${todo.text}`); // For demo
 
   return (
@@ -32,13 +32,13 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
       </button>
     </div>
   );
-};
+});
 
 // TodoStats component
-const TodoStats = memo(({ todos }) => {
+const TodoStats = memo(({ todos }) => { // a whole component 
   console.log('Rendering TodoStats'); // For demo
 
-  const stats =  useMemo(()=>{
+  const stats =  useMemo(()=>{ // a expensive value to be memoized
     return {
       total: todos.length,
       completed: todos.filter(todo => todo.completed).length,
@@ -61,11 +61,15 @@ const TodoStats = memo(({ todos }) => {
 
 // Main App Component
 const App = () => {
-  const [todos, setTodos] = useState([]); // array of object 
+
+ 
+  const [todos, setTodos] = useState([]);
+
+  // const [todos, setTodos] = useState([]); // array of object 
   const [newTodo, setNewTodo] = useState(''); // storing the current value that is added in todo 
   const [filter, setFilter] = useState('all'); // all, active,completed
 
-  const filteredTodos = () => {
+  const filteredTodos = useMemo(() => {
     console.log('Filtering todos...'); // For demonstration
     switch (filter) {
       case 'active':
@@ -75,21 +79,21 @@ const App = () => {
       default:
         return todos;
     }
-  };
+  },[todos,filter]);
 
-  const handleToggle = (id) => {
+  const handleToggle = useCallback((id) => {
     console.log('Toggle handler called'); // For demo
     setTodos(prevTodos =>
       prevTodos.map(todo =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-  };
+  },[]);
 
-  const handleDelete = (id) => {
+  const handleDelete = useCallback((id) => {
     console.log('Delete handler called'); // For demo
     setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
-  };
+  },[]);
 
   // useMemo, useCallback,memo 
   const handleAddTodo = useCallback(() => {
@@ -150,7 +154,7 @@ const App = () => {
 
         {/* Todo list */}
         <div className="space-y-2">
-          {filteredTodos().map(todo => (
+          {filteredTodos.map(todo => (
             <TodoItem
               key={todo.id}
               todo={todo}
