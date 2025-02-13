@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link, useMatch, useNavigate, useResolvedPath, useSearchParams} from 'react-router'
 
 export function LinkHelper({children,className,...props}) {
+
+  // const [setLocation] = useContext(UserContext)
     const resolvedPath = useResolvedPath(props.to)
     console.log(resolvedPath.pathname)
     const isActive = useMatch({path:resolvedPath.pathname,end:true})
+    // setLocation(resolvedPath.pathname)
 
     let [searchParams] = useSearchParams();
 

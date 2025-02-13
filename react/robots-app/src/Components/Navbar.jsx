@@ -2,16 +2,21 @@ import  { useContext } from 'react'
 import { ThemeContext } from '../Contexts/theme.context'
 import { LinkHelper as Link} from '../utils/LinkHelper'
 import { House, Moon, ScanEye, Sun, UserPlus } from 'lucide-react'
+import { UserContext } from '../Contexts/user.context'
 
 export default function Navbar() {
     const {theme,setTheme} = useContext(ThemeContext)
-    
-        function handleClick(){
-            setTheme((prev)=>{
-               return ((prev === "light") ? "dark" : "light")
-            })
-        }
+    const {user,setUser} = useContext(UserContext)
+
+      function handleClick(){
+          setUser("Abhishek")
+          setTheme((prev)=>{
+              return ((prev === "light") ? "dark" : "light")
+          })
+      }
+        
   return (
+
     <nav className={`${theme === "light" ? "bg-gray-300 text-black" :"bg-gray-800 text-white"} p-4 `} >
         <div className="container mx-auto flex justify-between items-center">
             <div>
@@ -19,9 +24,10 @@ export default function Navbar() {
             </div>
             <div className='flex items-center space-x-4'>
             <Link className="flex" to="/" >
-                Home 
+                Home {user}
                 <House className='w-6 h-6 ml-1 mr-2' />
             </Link>
+
 
             
 

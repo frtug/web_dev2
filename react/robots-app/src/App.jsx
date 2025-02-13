@@ -6,6 +6,7 @@ import Login from './Pages/login'
 import Signup from './Pages/signup'
 import { ThemeProvider} from './Contexts/theme.context'
 import Navbar from './Components/Navbar'
+import {  UserProvider } from './Contexts/user.context'
 
 function Dashboard(){
 return (
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      
+      <UserProvider>
     <div className="dark:text-blue-800  ">
         {/* <h1 className='text-center text-2xl'  >Login Form</h1> */}
         {/* <Login/> */}
@@ -33,6 +34,7 @@ function App() {
       </Routes>
 
     </div>
+    </UserProvider>
     </ThemeProvider>
   )
 }
