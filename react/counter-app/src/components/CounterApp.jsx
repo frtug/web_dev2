@@ -1,4 +1,3 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { increment,decrement } from '../feature/counter/counter.slice'
 export default function CounterApp() {
@@ -6,7 +5,7 @@ export default function CounterApp() {
     const dispatch = useDispatch();
     console.log(value)
   return (
-    <div className='mx-auto px-2 bg-gray-100'>
+    <div className='mx-auto px-2 bg-gray-500 dark:bg-red-400'>
         <h1>Counter APP</h1>
         <div>
             <button onClick={()=>dispatch(decrement())}>-</button>
