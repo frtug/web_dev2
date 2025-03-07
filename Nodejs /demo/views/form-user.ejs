@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/home.css" />
+    <style>
+         button {
+      padding: 10px 10px;
+      font-size: 1em;
+      cursor: pointer;
+      border: none;
+      background-color: #263d55;
+      color: white;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+        <div class="header">
+            <nav>
+                <li ><a href="/" >Home</a></li>
+                <li><a class="active" href="/admin/movie" >Contact</a></li>
+                <li><a href="/admin/login" >Login</a></li>
+            </nav>
+        </div>
+    <div>
+        <h1>Add a add-movie</h1>
+        <form action='/admin/add-movie' method='POST'>
+            <input placeholder='Enter the movie name' name='title' />
+             <button type='submit'> Add </button>
+        </form>
+
+        <form action='/url-short' method='POST'>
+            <input placeholder='Enter the url' name='url' />
+             <button type='submit'> Convert </button>
+        </form>
+        <% if(page==="url" && local_url){ %>
+            <a href="<%= local_url %>" id="shortId"> <%= local_url%></a>
+            <button onclick="copyToClipboard()">Click to Copy</button>
+
+        <% } %>
+
+    </div>
+    <script>
+        function copyToClipboard() {
+          // Get the text from the div
+          const text = document.getElementById('shortId').innerText;
+    
+          // Use the Clipboard API to copy the text
+          navigator.clipboard.writeText(text)
+            .then(() => {
+              alert('Copied to clipboard: ' + text);
+            })
+            .catch((err) => {
+              console.error('Failed to copy: ', err);
+            });
+        }
+      </script>
+</body>
+</html>
